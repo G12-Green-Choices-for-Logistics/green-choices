@@ -9,7 +9,7 @@ const formatRoutes = (routes) => {
             segments: route.map(segment => ({
                 from: segment.source,
                 to: segment.destination,
-                fromGeoLocation: segment.geo_location || null,
+                fromGeoLocation: segment.source_geo_location || null,
                 toGeoLocation: segment.destination_geo_location || null,
                 transportModes: segment.mode,
                 costs: segment.cost,
