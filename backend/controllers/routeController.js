@@ -41,8 +41,9 @@ const formatRoutes = (routes) => {
 
 const findRoutes = (req, res) => {
     try {
-        const { source, destination } = req.body;
-
+        const { sourceCity, destinationCity, sourceCountry, destinationCountry } = req.query;
+        const source = sourceCity + ', ' + sourceCountry;
+        const destination = destinationCity + ', ' + destinationCountry;
         if (!source || !destination) {
             return res.status(400).json({
                 error: ERROR_MESSAGES.sourceDestinationRequired

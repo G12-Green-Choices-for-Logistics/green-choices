@@ -42,12 +42,14 @@ npm run dev
 
 `GET: /find-routes/` **Subjected to changes**
 
-**Request body**
+**Request Params**
 
 ```json
 {
-  "source": "Toronto, Canada",
-  "destination": "Sydney, Australia"
+  "sourceCity": "Toronto",
+  "sourceCountry": "Canada",
+  "destinationCity": "Sydney",
+  "destinationCountry": "Australia"
 }
 ```
 
