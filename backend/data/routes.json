@@ -228,7 +228,7 @@
       "duration": [18, 2],
       "distance": [3000, 2500],
       "carbon_emission": [80, 40],
-      "destination_geo_location": [52.2297, 21.0122],
+      "destination_geo_location": [60.1695, 24.9354],
       "source_geo_location": [52.52, 13.405]
     },
     {
@@ -260,7 +260,7 @@
       "duration": [8, 2],
       "distance": [1200, 1000],
       "carbon_emission": [40, 20],
-      "destination_geo_location": [52.2297, 21.0122],
+      "destination_geo_location": [60.1695, 24.9354],
       "source_geo_location": [52.2297, 21.0122]
     }
   ],
