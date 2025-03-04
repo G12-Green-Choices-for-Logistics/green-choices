@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/Card";
-const CartDetails = () => {
+const CartDetails = ({ total }) => {
     return (
         <Card className="p-6 bg-white/70 backdrop-blur-lg min-h-[400px]">
             <h2 className="text-xl font-semibold mb-4 text-center">Details</h2>
@@ -7,7 +7,7 @@ const CartDetails = () => {
                 <div>
                     <div className="flex justify-between border-b py-2">
                         <p className="font-semibold">Sub Total</p>
-                        <p>$320.00</p>
+                        <p>${total}</p>
                     </div>
                     <div className="flex justify-between border-b py-2">
                         <p className="font-semibold">Tax</p>
@@ -15,7 +15,7 @@ const CartDetails = () => {
                     </div>
                     <div className="flex justify-between border-b py-2">
                         <p className="font-semibold">Total</p>
-                        <p>$352.00</p>
+                        <p>${total + 32.00}</p>
                     </div>
                 </div>
 
