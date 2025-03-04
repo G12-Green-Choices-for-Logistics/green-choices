@@ -93,7 +93,7 @@ const CartItems = () => {
                                 </div>
                             </td>
                             <td className="p-2">
-                                <div className="flex items-center gap-2 p-1">
+                                <div className="flex items-center justify-between gap-4 p-1 min-w-[100px]">
                                     <p>${item.price * item.quantity}</p>
                                     <Trash2
                                         size={20}
