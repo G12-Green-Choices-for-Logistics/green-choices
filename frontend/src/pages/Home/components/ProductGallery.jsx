@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ProductDetails.module.css";
 
-const ProductGallery = ({productImage}) => {
+const ProductGallery = ({ productImage }) => {
   return (
     <div className={styles.galleryContainer}>
       <figure className={styles.imageContainer}>
@@ -31,6 +31,6 @@ const ProductGallery = ({productImage}) => {
       </div>
     </div>
   );
-}
+};
 
 export default ProductGallery;

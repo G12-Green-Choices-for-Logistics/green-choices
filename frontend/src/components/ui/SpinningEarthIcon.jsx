@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'; 
+import { motion } from "framer-motion";
 const SpinningEarthIcon = ({ iconType }) => {
   return (
     <motion.div
@@ -8,12 +8,11 @@ const SpinningEarthIcon = ({ iconType }) => {
       transition={{
         duration: 5, // Duration for one full rotation
         repeat: Infinity, // Keep spinning infinitely
-        ease: 'linear', // Smooth constant speed
+        ease: "linear", // Smooth constant speed
       }}
       className="flex justify-center items-center text-3xl  "
     >
-      {iconType ==1? "♻️" :"🌎"}
-       
+      {iconType == 1 ? "♻️" : "🌎"}
     </motion.div>
   );
 };

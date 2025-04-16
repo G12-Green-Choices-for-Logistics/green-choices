@@ -71,11 +71,11 @@
 }
 
 /* Gauge */
- 
+
 .value-text {
   display: none;
 }
- 
+
 .gauge-pointer {
   background-color: #fbbf24 !important; /* Your desired color */
   border-radius: 50%;
@@ -85,6 +85,8 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(100vw); /* Moves the icon across the full width of the screen */
+    transform: translateX(
+      100vw
+    ); /* Moves the icon across the full width of the screen */
   }
 }

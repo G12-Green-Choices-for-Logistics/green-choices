@@ -1,9 +1,19 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { MapPin, CheckCircle, Package, Truck, Home, Clock, ArrowRight, AlertCircle, CircleCheck } from 'lucide-react';
-import useRoutes from '../../../hooks/useRoutes';
-import { format, isValid } from 'date-fns';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import {
+  MapPin,
+  CheckCircle,
+  Package,
+  Truck,
+  Home,
+  Clock,
+  ArrowRight,
+  AlertCircle,
+  CircleCheck,
+} from "lucide-react";
+import useRoutes from "../../../hooks/useRoutes";
+import { format, isValid } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
   const navigate = useNavigate();
@@ -21,12 +31,12 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
         <motion.div
           animate={{
             rotate: 360,
-            scale: [1, 1.2, 1]
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 1.5,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         >
           <Package className="h-16 w-16 text-green-600" />
@@ -36,17 +46,17 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
   }
 
   if (!selectedRoute) {
-    navigate('/');
+    navigate("/");
     return null;
   }
 
   const formatDate = (dateString) => {
     try {
       const date = new Date(dateString);
-      return isValid(date) ? format(date, 'MMM d, yyyy') : 'Date pending';
+      return isValid(date) ? format(date, "MMM d, yyyy") : "Date pending";
     } catch (error) {
-      console.error('Date formatting error:', error);
-      return 'Date pending';
+      console.error("Date formatting error:", error);
+      return "Date pending";
     }
   };
 
@@ -56,7 +66,7 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
   const lastSegment = segments[segments.length - 1];
 
   // Generate date range safely
-  let dateRange = 'Dates to be determined';
+  let dateRange = "Dates to be determined";
   if (firstSegment?.departureTime && lastSegment?.arrivalTime) {
     const startDate = formatDate(firstSegment.departureTime);
     const endDate = formatDate(lastSegment.arrivalTime);
@@ -64,7 +74,8 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
   }
 
   // Determine current step for progress visualization
-  const currentStep = segments.findIndex(segment => segment.status !== 'completed') || 1;
+  const currentStep =
+    segments.findIndex((segment) => segment.status !== "completed") || 1;
 
   // Animation variants
   const containerVariants = {
@@ -72,14 +83,14 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   };
 
   const getStatusIcon = (index) => {
@@ -102,10 +113,8 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
       >
         {/* Order Number and Date */}
         <motion.div variants={itemVariants}>
-          <motion.h1
-            className="text-2xl md:text-3xl font-bold text-green-600"
-          >
-            Order #{orderId || '123456'}
+          <motion.h1 className="text-2xl md:text-3xl font-bold text-green-600">
+            Order #{orderId || "123456"}
           </motion.h1>
           <p className="text-md md:text-lg text-blue-600 mt-2">
             Arriving {dateRange}
@@ -114,7 +123,9 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
 
         {/* Tracking Details */}
         <motion.div variants={itemVariants}>
-          <h2 className="text-xl md:text-2xl font-bold mb-6">Tracking Details</h2>
+          <h2 className="text-xl md:text-2xl font-bold mb-6">
+            Tracking Details
+          </h2>
 
           <div className="space-y-24">
             {segments.map((segment, index) => (
@@ -126,46 +137,56 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
               >
                 <div className="relative">
                   <motion.div
-                    className={`p-2 rounded-full ${index < currentStep
-                      ? "bg-green-100"
-                      : index === currentStep
-                        ? "bg-blue-100"
-                        : "bg-gray-100"
-                      }`}
+                    className={`p-2 rounded-full ${
+                      index < currentStep
+                        ? "bg-green-100"
+                        : index === currentStep
+                          ? "bg-blue-100"
+                          : "bg-gray-100"
+                    }`}
                     animate={
                       index === currentStep
                         ? {
-                          boxShadow: [
-                            "0 0 0 rgba(59, 130, 246, 0)",
-                            "0 0 8px rgba(59, 130, 246, 0.6)",
-                            "0 0 0 rgba(59, 130, 246, 0)"
-                          ]
-                        }
+                            boxShadow: [
+                              "0 0 0 rgba(59, 130, 246, 0)",
+                              "0 0 8px rgba(59, 130, 246, 0.6)",
+                              "0 0 0 rgba(59, 130, 246, 0)",
+                            ],
+                          }
                         : {}
                     }
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     {index === 0 ? (
-                      <Home className={`h-5 w-5 ${index < currentStep
-                        ? "text-green-600"
-                        : index === currentStep
-                          ? "text-blue-600"
-                          : "text-gray-400"
-                        }`} />
+                      <Home
+                        className={`h-5 w-5 ${
+                          index < currentStep
+                            ? "text-green-600"
+                            : index === currentStep
+                              ? "text-blue-600"
+                              : "text-gray-400"
+                        }`}
+                      />
                     ) : index === segments.length - 1 ? (
-                      <MapPin className={`h-5 w-5 ${index < currentStep
-                        ? "text-green-600"
-                        : index === currentStep
-                          ? "text-blue-600"
-                          : "text-gray-400"
-                        }`} />
+                      <MapPin
+                        className={`h-5 w-5 ${
+                          index < currentStep
+                            ? "text-green-600"
+                            : index === currentStep
+                              ? "text-blue-600"
+                              : "text-gray-400"
+                        }`}
+                      />
                     ) : (
-                      <Truck className={`h-5 w-5 ${index < currentStep
-                        ? "text-green-600"
-                        : index === currentStep
-                          ? "text-blue-600"
-                          : "text-gray-400"
-                        }`} />
+                      <Truck
+                        className={`h-5 w-5 ${
+                          index < currentStep
+                            ? "text-green-600"
+                            : index === currentStep
+                              ? "text-blue-600"
+                              : "text-gray-400"
+                        }`}
+                      />
                     )}
                   </motion.div>
                   {index !== segments.length - 1 && (
@@ -183,12 +204,15 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
                     {segment.from || `Location ${index + 1}`}
                   </h3>
                   <div className="flex items-center justify-between">
-                    <p className={`text-sm md:text-md ${index < currentStep
-                      ? "text-green-600"
-                      : index === currentStep
-                        ? "text-blue-600"
-                        : "text-gray-500"
-                      }`}>
+                    <p
+                      className={`text-sm md:text-md ${
+                        index < currentStep
+                          ? "text-green-600"
+                          : index === currentStep
+                            ? "text-blue-600"
+                            : "text-gray-500"
+                      }`}
+                    >
                       {index < currentStep ? (
                         <span className="flex items-center">
                           Delivered
@@ -207,7 +231,9 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
                       )}
                     </p>
                     <p className="text-sm text-gray-500">
-                      {formatDate(segment.departureTime || segment.arrivalTime || '')}
+                      {formatDate(
+                        segment.departureTime || segment.arrivalTime || "",
+                      )}
                     </p>
                   </div>
                 </div>
@@ -228,11 +254,13 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
                 className="ml-2 font-mono"
                 whileHover={{ color: "#4ade80" }}
               >
-                {selectedRoute.trackingNumber || selectedRoute.routeNumber || '1234567890'}
+                {selectedRoute.trackingNumber ||
+                  selectedRoute.routeNumber ||
+                  "1234567890"}
               </motion.span>
             </p>
             <p className="text-md md:text-lg text-gray-600">
-              Carrier: {selectedRoute.carrier || 'Demola'}
+              Carrier: {selectedRoute.carrier || "Demola"}
             </p>
           </div>
           <p className="text-md md:text-lg text-green-600 font-medium">
@@ -242,7 +270,7 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
 
         {/* Homepage Button */}
         <motion.button
-          onClick={() => window.location.href = '/home'}
+          onClick={() => (window.location.href = "/home")}
           className="w-full mt-6 px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors text-lg font-semibold"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
@@ -251,7 +279,7 @@ const TrackingDetails = ({ selectedRoute, orderId, isLoading }) => {
           Go to Homepage
         </motion.button>
       </motion.div>
-    </div >
+    </div>
   );
 };
 

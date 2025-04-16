@@ -16,10 +16,10 @@ const Tree = () => {
       }}
     >
       <img
-    className="w-[100px] h-26"
-    alt="Fuel Type Icon"
-    src=  "/imgs/earth-hands.png" 
-  />
+        className="w-[100px] h-26"
+        alt="Fuel Type Icon"
+        src="/imgs/earth-hands.png"
+      />
     </motion.span>
   );
 };

@@ -5,9 +5,8 @@ import ProductDetails from "./ProductDetails";
 import ActionButton from "../../../components/ui/ActionButton";
 
 const ProductQuickView = ({ onClose, onAddToCart, product }) => {
-
-//Temparory added, need to get from api
-const category = "Shoes / Casual Sneaker";
+  //Temparory added, need to get from api
+  const category = "Shoes / Casual Sneaker";
 
   return (
     <main className={styles.productQuickView}>
@@ -27,17 +26,16 @@ const category = "Shoes / Casual Sneaker";
           </div>
 
           <div className={styles.actionSection}>
-          <ActionButton 
-            text="Add to Cart"
-            onClick={onAddToCart}
-            className="w-2/5 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors rounded-[12px]">    
-          </ActionButton>
+            <ActionButton
+              text="Add to Cart"
+              onClick={onAddToCart}
+              className="w-2/5 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors rounded-[12px]"
+            ></ActionButton>
           </div>
         </div>
       </section>
     </main>
   );
-}
+};
 
 export default ProductQuickView;
-

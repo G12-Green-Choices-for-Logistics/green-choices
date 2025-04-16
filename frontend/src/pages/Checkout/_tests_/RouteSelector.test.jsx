@@ -12,13 +12,19 @@ describe("RouteSelector Component", () => {
         duration: { minimum: 2, maximum: 5 },
         distance: { minimum: 500 },
         cost: { minimum: 100, maximum: 200 },
-        carbonEmissions: { minimum: 50, maximum: 80 }
-      }
-    }
+        carbonEmissions: { minimum: 50, maximum: 80 },
+      },
+    },
   ];
 
   it("should select the first delivery option by default", () => {
-    render(<RouteSelector routes={mockRoutes} selectedRoute={mockRoutes[0]} onRouteSelect={() => {}} />);
+    render(
+      <RouteSelector
+        routes={mockRoutes}
+        selectedRoute={mockRoutes[0]}
+        onRouteSelect={() => {}}
+      />,
+    );
 
     // Find the route name inside the card
     const routeText = screen.getByText("Route A1");

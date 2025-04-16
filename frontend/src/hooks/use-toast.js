@@ -3,11 +3,11 @@ const actionTypes = {
   UPDATE_TOAST: "UPDATE_TOAST",
   DISMISS_TOAST: "DISMISS_TOAST",
   REMOVE_TOAST: "REMOVE_TOAST",
-}
+};
 
 function genId() {
-  count = (count + 1) % Number.MAX_SAFE_INTEGER
-  return count.toString()
+  count = (count + 1) % Number.MAX_SAFE_INTEGER;
+  return count.toString();
 }
 
 export const reducer = (state, action) => {
@@ -16,18 +16,18 @@ export const reducer = (state, action) => {
       return {
         ...state,
         toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
-      }
+      };
 
     case "UPDATE_TOAST":
       return {
         ...state,
         toasts: state.toasts.map((t) =>
-          t.id === action.toast.id ? { ...t, ...action.toast } : t
+          t.id === action.toast.id ? { ...t, ...action.toast } : t,
         ),
-      }
+      };
 
     case "DISMISS_TOAST": {
-      const { toastId } = action
+      const { toastId } = action;
 
       // ... existing code ...
     }
@@ -36,24 +36,24 @@ export const reducer = (state, action) => {
         return {
           ...state,
           toasts: [],
-        }
+        };
       }
       return {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
-      }
+      };
   }
-}
+};
 
 function toast({ ...props }) {
-  const id = genId()
+  const id = genId();
 
   const update = (props) =>
     dispatch({
       type: "UPDATE_TOAST",
       toast: { ...props, id },
-    })
-  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
+    });
+  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
 
   dispatch({
     type: "ADD_TOAST",
@@ -62,36 +62,36 @@ function toast({ ...props }) {
       id,
       open: true,
       onOpenChange: (open) => {
-        if (!open) dismiss()
+        if (!open) dismiss();
       },
     },
-  })
+  });
 
   return {
     id: id,
     dismiss,
     update,
-  }
+  };
 }
 
 function useToast() {
-  const [state, setState] = React.useState({ toasts: [] })
+  const [state, setState] = React.useState({ toasts: [] });
 
   React.useEffect(() => {
-    listeners.push(setState)
+    listeners.push(setState);
     return () => {
-      const index = listeners.indexOf(setState)
+      const index = listeners.indexOf(setState);
       if (index > -1) {
-        listeners.splice(index, 1)
+        listeners.splice(index, 1);
       }
-    }
-  }, [state])
+    };
+  }, [state]);
 
   return {
     ...state,
     toast,
     dismiss: (toastId) => dispatch({ type: "DISMISS_TOAST", toastId }),
-  }
+  };
 }
 
-export { useToast, toast } 
+export { useToast, toast };

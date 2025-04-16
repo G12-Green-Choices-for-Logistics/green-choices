@@ -1,11 +1,11 @@
-import React from 'react';
-import { render, screen, cleanup } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import '@testing-library/jest-dom/vitest';
-import Comparision from '../components/Comparision';
+import React from "react";
+import { render, screen, cleanup } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import "@testing-library/jest-dom/vitest";
+import Comparision from "../components/Comparision";
 
 // ✅ Mock useRoutes hook
-vi.mock('../../../hooks/useRoutes', async (importOriginal) => {
+vi.mock("../../../hooks/useRoutes", async (importOriginal) => {
   const mod = await importOriginal();
   return {
     ...mod,
@@ -19,7 +19,7 @@ vi.mock('../../../hooks/useRoutes', async (importOriginal) => {
 });
 
 // ✅ Mock AG Charts - AgGauge
-vi.mock('ag-charts-react', () => ({
+vi.mock("ag-charts-react", () => ({
   AgGauge: ({ options }) => (
     <div
       data-testid="gauge"
@@ -31,27 +31,27 @@ vi.mock('ag-charts-react', () => ({
   ),
 }));
 
-import useRoutes from '../../../hooks/useRoutes';
+import useRoutes from "../../../hooks/useRoutes";
 
-describe('Comparision Component', () => {
+describe("Comparision Component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     cleanup();
   });
 
-  it('renders nothing when totalEmissions is empty', () => {
+  it("renders nothing when totalEmissions is empty", () => {
     useRoutes.mockReturnValue({ totalEmissions: [] });
-  
+
     render(<Comparision maxValue={1000} />);
-    
+
     // Assert that no option labels are rendered
     expect(screen.queryByText(/Option \d/)).not.toBeInTheDocument();
   });
 
-  it('renders correct number of route emissions', () => {
+  it("renders correct number of route emissions", () => {
     const mockEmissions = [
-      { name: 'Route 1', minTotalEmissions: 200 },
-      { name: 'Route 2', minTotalEmissions: 400 },
+      { name: "Route 1", minTotalEmissions: 200 },
+      { name: "Route 2", minTotalEmissions: 400 },
     ];
 
     useRoutes.mockReturnValue({ totalEmissions: mockEmissions });
@@ -61,9 +61,9 @@ describe('Comparision Component', () => {
     expect(labels).toHaveLength(2);
   });
 
-  it('formats emission values correctly', () => {
+  it("formats emission values correctly", () => {
     useRoutes.mockReturnValue({
-      totalEmissions: [{ name: '1', minTotalEmissions: 123.456 }],
+      totalEmissions: [{ name: "1", minTotalEmissions: 123.456 }],
     });
 
     render(<Comparision maxValue={1000} />);
@@ -71,19 +71,19 @@ describe('Comparision Component', () => {
   });
 
   it.each([
-    [100, 'bg-green-500'],
-    [300, 'bg-lime-500'],
-    [550, 'bg-yellow-500'],
-    [700, 'bg-orange-500'],
-    [850, 'bg-red-500'],
-  ])('applies correct color for %i kgCO₂', (value, expectedColor) => {
+    [100, "bg-green-500"],
+    [300, "bg-lime-500"],
+    [550, "bg-yellow-500"],
+    [700, "bg-orange-500"],
+    [850, "bg-red-500"],
+  ])("applies correct color for %i kgCO₂", (value, expectedColor) => {
     useRoutes.mockReturnValue({
-      totalEmissions: [{ name: '1', minTotalEmissions: value }],
+      totalEmissions: [{ name: "1", minTotalEmissions: value }],
     });
 
     render(<Comparision maxValue={1000} />);
-    const gauge = screen.getByTestId('gauge');
-    expect(gauge).toHaveAttribute('data-color', expectedColor);
-    expect(gauge).toHaveAttribute('data-value', value.toString());
+    const gauge = screen.getByTestId("gauge");
+    expect(gauge).toHaveAttribute("data-color", expectedColor);
+    expect(gauge).toHaveAttribute("data-value", value.toString());
   });
 });

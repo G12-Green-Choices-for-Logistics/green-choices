@@ -2,10 +2,10 @@
 import React from "react";
 import styles from "./ProductDetails.module.css";
 import StarRating from "./StarRating";
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 
-const ProductDetails = ({name, price, description}) => {
+const ProductDetails = ({ name, price, description }) => {
   const [selectedColor, setSelectedColor] = useState("beige");
   const [selectedSize, setSelectedSize] = useState("8");
 
@@ -29,13 +29,14 @@ const ProductDetails = ({name, price, description}) => {
 
         {/* Size Options */}
         <div className={styles.sizeContainer}>
-          <label>Size : </label> 
+          <label>Size : </label>
           <div className={styles.sizeSelectWrapper}>
             <select
               className={styles.sizeSelect}
               value={selectedSize}
               onChange={handleSizeChange}
-              aria-label="Select size">
+              aria-label="Select size"
+            >
               <option value="6">EU 32</option>
               <option value="6.5">EU 34</option>
               <option value="7">EU 36</option>
@@ -74,6 +75,6 @@ const ProductDetails = ({name, price, description}) => {
       </div>
     </section>
   );
-}
+};
 
 export default ProductDetails;

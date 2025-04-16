@@ -23,7 +23,7 @@ describe("PaymentSuccess", () => {
     render(
       <MemoryRouter>
         <PaymentSuccess />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText("Payment Was")).toBeInTheDocument(); // ✅ Works now!
@@ -35,7 +35,7 @@ describe("PaymentSuccess", () => {
     render(
       <MemoryRouter>
         <PaymentSuccess />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByText("Go to Homepage")).toBeInTheDocument(); // ✅ Works now!
@@ -46,7 +46,7 @@ describe("PaymentSuccess", () => {
     render(
       <MemoryRouter>
         <PaymentSuccess />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     fireEvent.click(screen.getByText("Go to Homepage"));

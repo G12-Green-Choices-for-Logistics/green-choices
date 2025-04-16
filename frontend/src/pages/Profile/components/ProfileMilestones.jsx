@@ -41,6 +41,6 @@ const UserProfileMilestones = () => {
       </div>
     </div>
   );
-}
+};
 
 export default UserProfileMilestones;

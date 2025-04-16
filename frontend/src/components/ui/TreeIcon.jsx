@@ -9,7 +9,6 @@ const TreeIcon = () => {
       transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
     >
       🌱
-  
     </motion.span>
   );
 };

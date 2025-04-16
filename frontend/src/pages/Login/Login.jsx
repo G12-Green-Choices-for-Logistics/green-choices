@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useUser from '../../hooks/useUser';
+import useUser from "../../hooks/useUser";
 import styles from "./Login.module.css"; // Import CSS Module
 
 const Login = () => {
@@ -16,7 +16,6 @@ const Login = () => {
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleLogin = async (e) => {
-
     e.preventDefault();
     console.log("Login button clicked");
 
@@ -50,7 +49,8 @@ const Login = () => {
         <form onSubmit={handleLogin}>
           <div>
             <label>Email</label>
-            <input type="text"
+            <input
+              type="text"
               placeholder="Email"
               value={email}
               onChange={handleUsernameChange}
@@ -58,14 +58,18 @@ const Login = () => {
           </div>
           <div>
             <label>Password</label>
-            <input type="password"
+            <input
+              type="password"
               placeholder="Password"
               value={password}
               onChange={handlePasswordChange}
             />
           </div>
           <div>
-            <label style={{ display: pain ? "block" : "none", color: "red" }}> Incorrect Email or Password </label>
+            <label style={{ display: pain ? "block" : "none", color: "red" }}>
+              {" "}
+              Incorrect Email or Password{" "}
+            </label>
           </div>
           <button type="submit" className={styles.button}>
             Login

@@ -5,7 +5,7 @@ const UserProfileStats = () => {
   return (
     <div className={styles.statsSection}>
       <div className={styles.statsColumns}>
-      <div className={styles.statsColumn}>
+        <div className={styles.statsColumn}>
           <div className={styles.statsBox}>
             <div className={styles.statsNumberWithIcon}>
               <p className={styles.statsNumber}>8</p>
@@ -47,6 +47,6 @@ const UserProfileStats = () => {
       </div>
     </div>
   );
-}
+};
 
 export default UserProfileStats;

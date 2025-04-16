@@ -4,22 +4,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        quantico: ['Quantico', 'sans-serif'],
+        quantico: ["Quantico", "sans-serif"],
       },
     },
   },
   plugins: [
     function ({ addUtilities }) {
       addUtilities({
-        '.no-scrollbar': {
-          '-ms-overflow-style': 'none', /* IE & Edge */
-          'scrollbar-width': 'none',    /* Firefox */
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none" /* IE & Edge */,
+          "scrollbar-width": "none" /* Firefox */,
         },
-        '.no-scrollbar::-webkit-scrollbar': {
-          display: 'none',             /* Chrome, Safari */
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none" /* Chrome, Safari */,
         },
-      })
-    }
+      });
+    },
   ],
-}
-
+};

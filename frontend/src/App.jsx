@@ -2,19 +2,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Checkout from "./pages/Checkout/Checkout";
 import NotFound from "./pages/NotFound";
-import { TransportProvider } from '@/context/transport-context';
+import { TransportProvider } from "@/context/transport-context";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import UserProfile from "./pages/Profile/MyProfile";
 import PaymentSuccess from "./pages/Payment/PaymentSuccess";
-import { Provider } from "react-redux"
-import { store } from "./redux/store"
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 import OrderTrackingPage from "./pages/OrderTracking/OrderTracking";
 import OrdersTrackingPage from "./pages/OrdersTracking/OrdersTracking";
-import './styles/style.css'
-
+import "./styles/style.css";
 
 const App = () => (
   <Provider store={store}>

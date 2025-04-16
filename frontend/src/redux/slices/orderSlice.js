@@ -1,17 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   userId: 0,
   shippingAddress: "Default Address",
   totalAmount: 0,
   deliveryCharge: 0,
-  orderStatus: 'Pending',
+  orderStatus: "Pending",
   isSustainableOption: true,
-  orderItems: []
+  orderItems: [],
 };
 
 const orderSlice = createSlice({
-  name: 'order',
+  name: "order",
   initialState,
   reducers: {
     setOrderData: (state, action) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";  
-import styles from './Signup.module.css'
+import Header from "../../components/Header";
+import styles from "./Signup.module.css";
 const Register = () => {
   const navigate = useNavigate();
 
@@ -53,7 +53,7 @@ const Register = () => {
               <label>Full Name</label>
               <input
                 type="text"
-                name="fullName" 
+                name="fullName"
                 placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleChange}
@@ -156,13 +156,12 @@ const Register = () => {
                 checked={formData.agreeTerms}
                 onChange={handleChange}
               />
-              <label className="exclude-label text-gray-700">I agree to the terms and conditions</label>
+              <label className="exclude-label text-gray-700">
+                I agree to the terms and conditions
+              </label>
             </div>
             <div className={styles.actionDiv}>
-              <button
-                type="submit"
-                className={styles.btn}
-              >
+              <button type="submit" className={styles.btn}>
                 Register
               </button>
             </div>
@@ -170,10 +169,7 @@ const Register = () => {
           <div className={styles.loginDiv}>
             <p className={styles.login}>
               Already have an account?{" "}
-              <span
-                className={styles.spanLogin}
-                onClick={handleLoginRedirect}
-              >
+              <span className={styles.spanLogin} onClick={handleLoginRedirect}>
                 Login
               </span>
             </p>

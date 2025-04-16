@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import Header from "../../components/Header";
@@ -21,15 +21,14 @@ const Home = () => {
     toast.success(
       <>
         <p>Product added to cart!</p>
-        <span
-          onClick={() => navigate('/cart')}
-          className="toast-success"
-        >
+        <span onClick={() => navigate("/cart")} className="toast-success">
           Go to Cart
         </span>
-      </>, {
-      position: "bottom-right"
-    });
+      </>,
+      {
+        position: "bottom-right",
+      },
+    );
   };
 
   const handleProductClick = (product) => {
@@ -57,7 +56,6 @@ const Home = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
-
   return (
     <>
       <Header />
@@ -72,9 +70,16 @@ const Home = () => {
           <div className="py-6">
             <h2 className={styles.productTitle}>Trending Now</h2>
             <div className={styles.productGrid}>
-              {products.map(product => (
-                <div key={product.productId} onClick={() => handleProductClick(product)}>
-                  <img src={product.img} alt={product.name} className={styles.productImage} />
+              {products.map((product) => (
+                <div
+                  key={product.productId}
+                  onClick={() => handleProductClick(product)}
+                >
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className={styles.productImage}
+                  />
                   <h3 className="py-2">{product.name}</h3>
                   <p>${product.price}</p>
                 </div>
@@ -85,9 +90,16 @@ const Home = () => {
           <div>
             <h2 className={styles.productTitle}>Best Deals</h2>
             <div className={styles.productGrid}>
-              {products.map(product => (
-                <div key={product.productId} onClick={() => handleProductClick(product)}>
-                  <img src={product.img} alt={product.name} className={styles.productImage} />
+              {products.map((product) => (
+                <div
+                  key={product.productId}
+                  onClick={() => handleProductClick(product)}
+                >
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className={styles.productImage}
+                  />
                   <h3 className="py-2">{product.name}</h3>
                   <p>${product.price}</p>
                 </div>
@@ -139,7 +151,6 @@ const Home = () => {
         </div>
       )}
     </>
-
   );
 };
 

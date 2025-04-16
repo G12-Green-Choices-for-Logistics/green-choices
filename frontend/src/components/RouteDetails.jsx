@@ -1,7 +1,15 @@
 import { Card } from "@/components/ui/Card";
-import { Plane, Ship, Timer, DollarSign, Route, Leaf, Truck } from "lucide-react";
+import {
+  Plane,
+  Ship,
+  Timer,
+  DollarSign,
+  Route,
+  Leaf,
+  Truck,
+} from "lucide-react";
 import { useMemo, useEffect, useState } from "react";
-import { useTransport } from '@/context/transport-context';
+import { useTransport } from "@/context/transport-context";
 import { motion } from "framer-motion";
 const Switch = ({ checked, onCheckedChange, ariaLabel }) => {
   return (
@@ -42,8 +50,9 @@ const TransportIcon = ({ mode, isActive, onClick, disabled }) => {
     <div
       role="button"
       aria-label={`Select ${mode} transport`}
-      className={`p-1 rounded-md ${isActive ? "bg-green-500" : "hover:bg-gray-300"
-        } ${disabled ? "opacity-50 cursor-not-allowed" : ""} transition-colors`}
+      className={`p-1 rounded-md ${
+        isActive ? "bg-green-500" : "hover:bg-gray-300"
+      } ${disabled ? "opacity-50 cursor-not-allowed" : ""} transition-colors`}
       onClick={disabled ? undefined : onClick}
     >
       <Icon
@@ -53,24 +62,32 @@ const TransportIcon = ({ mode, isActive, onClick, disabled }) => {
   );
 };
 
-const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) => {
+const RouteDetails = ({
+  route,
+  greenestRoute,
+  disableCustomization = false,
+}) => {
   const { selectedModes, setSelectedModes, setCurrentRoute } = useTransport();
   const [key, setKey] = useState(0); // Key to trigger re-animation
   const [showGif, setShowGif] = useState(false);
   const [isCustomizing, setIsCustomizing] = useState(false);
   // Calculate initial modes based on minimum emissions while preserving order
-  const initialModes = useMemo(() =>
-    route?.segments.map(segment => {
-      const minEmission = Math.min(...segment.carbonEmissions);
-      return segment.transportModes[segment.carbonEmissions.indexOf(minEmission)];
-    }) || []
-    , [route]);
+  const initialModes = useMemo(
+    () =>
+      route?.segments.map((segment) => {
+        const minEmission = Math.min(...segment.carbonEmissions);
+        return segment.transportModes[
+          segment.carbonEmissions.indexOf(minEmission)
+        ];
+      }) || [],
+    [route],
+  );
 
   useEffect(() => {
     if (route) {
       setCurrentRoute(route);
       setSelectedModes(initialModes);
-      setKey(prev => prev + 1); // Change key to trigger animation
+      setKey((prev) => prev + 1); // Change key to trigger animation
       setShowGif(true);
       setTimeout(() => setShowGif(false), 3000); // Hide after 3 seconds
     }
@@ -80,7 +97,7 @@ const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) =>
   console.log(route);
 
   const handleToggle = (index) => {
-    setSelectedModes(prevModes => {
+    setSelectedModes((prevModes) => {
       const newModes = [...prevModes];
       const segment = route.segments[index];
       const currentIndex = segment.transportModes.indexOf(newModes[index]);
@@ -100,29 +117,32 @@ const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) =>
       transition={{ duration: 1, ease: "easeOut" }} // Custom cubic bezier for smooth feel
     >
       <Card className="p-6 bg-white/70 backdrop-blur-lg shadow-lg transition-transform w-full">
-
         <div className="flex items-center gap-2">
+          <h2 className="text-xl font-semibold mb-4 mr-6">
+            Option {route.routeNumber} Details
+          </h2>
 
-          <h2 className="text-xl font-semibold mb-4 mr-6">Option {route.routeNumber} Details</h2>
-
-          {route.routeNumber == 1 && (<div className="rounded-lg shadow-md text-center bg-green-100">
-            <p className="text-sm font-semibold text-green-700 mr-2 ml-2 mb-2 mt-2 text-center">Good Job! You are saving 20% of carbon emission!</p>
-          </div>
-
-          )}
-          {!disableCustomization && (<div className="flex items-center gap-2">
-            <div className="absolute right-0 inline-flex space-x-2 transform translate-x-[-25%]">
-              <span className="text-sm text-gray-600 ">Customize Route</span>
-              <Switch
-                className="ml-auto"
-                checked={isCustomizing}
-                onCheckedChange={setIsCustomizing}
-                aria-label="Toggle customization mode"
-              />
+          {route.routeNumber == 1 && (
+            <div className="rounded-lg shadow-md text-center bg-green-100">
+              <p className="text-sm font-semibold text-green-700 mr-2 ml-2 mb-2 mt-2 text-center">
+                Good Job! You are saving 20% of carbon emission!
+              </p>
             </div>
-          </div>)}
+          )}
+          {!disableCustomization && (
+            <div className="flex items-center gap-2">
+              <div className="absolute right-0 inline-flex space-x-2 transform translate-x-[-25%]">
+                <span className="text-sm text-gray-600 ">Customize Route</span>
+                <Switch
+                  className="ml-auto"
+                  checked={isCustomizing}
+                  onCheckedChange={setIsCustomizing}
+                  aria-label="Toggle customization mode"
+                />
+              </div>
+            </div>
+          )}
         </div>
-
 
         {/* Conditionally render the GIF only for the greenest route */}
         {showGif && greenestRoute.routeNumber == route.routeNumber && (
@@ -168,13 +188,17 @@ const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) =>
           <div className="space-y-4">
             <h3 className="text-lg font-medium">Route Segments</h3>
             {route.segments.map((segment, index) => {
-              const modeIndex = segment.transportModes.indexOf(selectedModes[index]);
+              const modeIndex = segment.transportModes.indexOf(
+                selectedModes[index],
+              );
 
               return (
                 <Card key={segment.id} className="p-4 border border-gray-200">
                   <div className="flex justify-between items-start">
                     <div>
-                      <p className="font-medium">{segment.from} → {segment.to}</p>
+                      <p className="font-medium">
+                        {segment.from} → {segment.to}
+                      </p>
                       <div className="flex items-center gap-4 mt-2 text-sm text-gray-600">
                         <span>{segment.distances[modeIndex]} km</span>
                         <span>•</span>
@@ -183,17 +207,21 @@ const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) =>
                     </div>
                     <div className="flex gap-2 bg-gray-200 py-1 px-2 rounded-lg">
                       {segment.transportModes
-                        .filter((mode) => isCustomizing || selectedModes[index] === mode)
+                        .filter(
+                          (mode) =>
+                            isCustomizing || selectedModes[index] === mode,
+                        )
                         .map((mode) => (
                           <TransportIcon
                             key={mode}
                             mode={mode}
                             isActive={selectedModes[index] === mode}
                             onClick={() => handleToggle(index)}
-                            disabled={disableCustomization ? !isCustomizing : false}
+                            disabled={
+                              disableCustomization ? !isCustomizing : false
+                            }
                           />
                         ))}
-
                     </div>
                   </div>
 
@@ -204,12 +232,16 @@ const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) =>
                     </div>
                     <div>
                       <span className="text-gray-600">Emissions:</span>
-                      <p className="font-medium">{segment.carbonEmissions[modeIndex]} kg</p>
+                      <p className="font-medium">
+                        {segment.carbonEmissions[modeIndex]} kg
+                      </p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="">
                         <span className="text-gray-600">Fuel Type:</span>
-                        <p className="font-medium">{segment.fuel_types[modeIndex]}</p>
+                        <p className="font-medium">
+                          {segment.fuel_types[modeIndex]}
+                        </p>
                       </div>
                       <div className="flex items-center">
                         <img
@@ -224,11 +256,14 @@ const RouteDetails = ({ route, greenestRoute, disableCustomization = false }) =>
                                   ? "/imgs/gasoline.png"
                                   : segment.fuel_types[modeIndex] === "Diesel"
                                     ? "/imgs/diesel.png"
-                                    : segment.fuel_types[modeIndex] === "Natural Gas"
+                                    : segment.fuel_types[modeIndex] ===
+                                        "Natural Gas"
                                       ? "/imgs/natural-gas.png"
-                                      : segment.fuel_types[modeIndex] === "Electric (Fossil)"
+                                      : segment.fuel_types[modeIndex] ===
+                                          "Electric (Fossil)"
                                         ? "/imgs/electric.png"
-                                        : segment.fuel_types[modeIndex] === "Electric (Renewable)"
+                                        : segment.fuel_types[modeIndex] ===
+                                            "Electric (Renewable)"
                                           ? "/imgs/electric.png"
                                           : ""
                           }

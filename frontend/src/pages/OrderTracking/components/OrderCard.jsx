@@ -1,6 +1,5 @@
-import React from 'react';
-import { Leaf, Globe2, Truck } from 'lucide-react';
-
+import React from "react";
+import { Leaf, Globe2, Truck } from "lucide-react";
 
 const OrderCard = ({
   orderId,
@@ -10,8 +9,10 @@ const OrderCard = ({
   isGreenDelivery,
 }) => {
   return (
-    <div className={`rounded-xl min-w-[300px] border p-4 shadow-sm transition-all duration-200 hover:shadow-md relative overflow-hidden
-      ${isSustainable ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-white'}`}>
+    <div
+      className={`rounded-xl min-w-[300px] border p-4 shadow-sm transition-all duration-200 hover:shadow-md relative overflow-hidden
+      ${isSustainable ? "border-green-500 bg-green-50" : "border-gray-200 bg-white"}`}
+    >
       {/* Background Icons */}
       <div className="absolute -bottom-2 -right-2 transform rotate-12">
         {isSustainable && (
@@ -25,7 +26,9 @@ const OrderCard = ({
       {/* Content */}
       <div className="relative z-10">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-gray-800">Order {orderId}</h3>
+          <h3 className="text-lg font-semibold text-gray-800">
+            Order {orderId}
+          </h3>
           {/* {isSustainable && (
             <Globe2 className="h-6 w-6 text-green-600" />
           )}
@@ -33,17 +36,15 @@ const OrderCard = ({
             <Leaf className="h-6 w-6 text-green-600" />
           )} */}
         </div>
-        
+
         <div className="mt-2 space-y-2">
-          <p className="text-sm text-gray-600">
-            Arrives {arrivalDate}
-          </p>
+          <p className="text-sm text-gray-600">Arrives {arrivalDate}</p>
           <div className="flex items-center gap-1.5 text-sm text-gray-600">
             <Truck className="h-5 w-5" />
             <span>Emits {emissions}</span>
           </div>
         </div>
-        
+
         <div className="mt-3">
           {isGreenDelivery && (
             <p className="text-sm font-medium text-green-600">

@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { VITE_APP_API_URL } from '../data/constants'
+import { useCallback, useState } from "react";
+import { VITE_APP_API_URL } from "../data/constants";
 
 const useOrder = () => {
   const [order, setOrder] = useState(null); // Stores order data
@@ -18,18 +18,18 @@ const useOrder = () => {
       if (orderId) {
         // Update existing order
         response = await fetch(`${VITE_APP_API_URL}orders/${orderId}`, {
-          method: 'PUT',
+          method: "PUT",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(orderData),
         });
       } else {
         // Create a new order
         response = await fetch(`${VITE_APP_API_URL}orders`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(orderData),
         });
@@ -46,7 +46,7 @@ const useOrder = () => {
     } catch (err) {
       setError(err.message);
       setLoading(false);
-      throw new Error('Error saving/updating order: ' + err.message);
+      throw new Error("Error saving/updating order: " + err.message);
     }
   };
 
@@ -69,7 +69,7 @@ const useOrder = () => {
     } catch (err) {
       setError(err.message);
       setLoading(false);
-      throw new Error('Error retrieving order: ' + err.message);
+      throw new Error("Error retrieving order: " + err.message);
     }
   };
 
@@ -100,7 +100,9 @@ const useOrder = () => {
     setError(null);
 
     try {
-      const response = await fetch(`${VITE_APP_API_URL}orders/user/${userId}/active-with-route`);
+      const response = await fetch(
+        `${VITE_APP_API_URL}orders/user/${userId}/active-with-route`,
+      );
 
       if (!response.ok) {
         throw new Error(`Error fetching active orders: ${response.statusText}`);
@@ -125,12 +127,12 @@ const useOrder = () => {
       const response = await fetch(
         `${import.meta.env.VITE_APP_API_URL}update-route`,
         {
-          method: 'PUT',
+          method: "PUT",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(routeInfo),
-        }
+        },
       );
 
       if (!response.ok) {
@@ -140,7 +142,7 @@ const useOrder = () => {
       const updatedRoute = await response.json();
       return updatedRoute;
     } catch (err) {
-      console.error('Error updating route:', err);
+      console.error("Error updating route:", err);
       setError(err.message);
       throw err;
     } finally {

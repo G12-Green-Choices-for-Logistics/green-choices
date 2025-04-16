@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Card } from "@/components/ui/Card";
 import { DollarSign, Leaf, Timer } from "lucide-react";
-import { useTransport } from '@/context/transport-context';
+import { useTransport } from "@/context/transport-context";
 import ActionButton from "../../../components/ui/ActionButton";
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
@@ -11,44 +11,62 @@ import TreeIcon from "../../../components/ui/TreeIcon";
 import ExhaustIcon from "../../../components/ui/ExhaustIcon";
 import SustainabilityMessage from "../../../components/ui/SustainabilityMessage";
 import useOrder from "../../../hooks/useOrder";
-import { setOrderData } from '../../../redux/slices/orderSlice'; 
-import { clearCart } from "../../../redux/slices/cartSlice"; 
-import styles from './OrderSummary.module.css';
+import { setOrderData } from "../../../redux/slices/orderSlice";
+import { clearCart } from "../../../redux/slices/cartSlice";
+import styles from "./OrderSummary.module.css";
 
-const OrderSummary = ({selectedRoute, isLowSustainable, greenestRoute, totalAmount, cartItems}) => {
+const OrderSummary = ({
+  selectedRoute,
+  isLowSustainable,
+  greenestRoute,
+  totalAmount,
+  cartItems,
+}) => {
   const { routeTotals } = useTransport();
   const { saveOrder, loading, error } = useOrder();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const orderData = useSelector((state) => state.order);
-  const user = useSelector((state) => state.auth?.user || null);    
+  const user = useSelector((state) => state.auth?.user || null);
 
   useEffect(() => {
     if (routeTotals && user) {
       const routeInfo = {
-        source: selectedRoute?.source,  // assuming selectedRoute has source
+        source: selectedRoute?.source, // assuming selectedRoute has source
         destination: selectedRoute?.destination,
         carbonEmissions: routeTotals.emissions,
         duration: routeTotals.duration,
         routeNumber: selectedRoute?.routeNumber,
         totalCost: routeTotals.cost,
-        lastUpdatedUserId: user.id
+        lastUpdatedUserId: user.id,
       };
 
       console.log("route info" + routeInfo.source);
 
-      dispatch(setOrderData({
-        userId: user.id,
-        shippingAddress: user.shippingAddress,
-        totalAmount: (Number(totalAmount || 0) + Number(routeTotals.cost || 0)).toFixed(2),
-        deliveryCharge: Number(routeTotals.cost || 0).toFixed(2),
-        isSustainableOption : !isLowSustainable,
-        orderItems: cartItems,
-        routeInfo: routeInfo
-      }));
+      dispatch(
+        setOrderData({
+          userId: user.id,
+          shippingAddress: user.shippingAddress,
+          totalAmount: (
+            Number(totalAmount || 0) + Number(routeTotals.cost || 0)
+          ).toFixed(2),
+          deliveryCharge: Number(routeTotals.cost || 0).toFixed(2),
+          isSustainableOption: !isLowSustainable,
+          orderItems: cartItems,
+          routeInfo: routeInfo,
+        }),
+      );
     }
-  }, [totalAmount, routeTotals, selectedRoute, isLowSustainable, cartItems, user, dispatch]);
+  }, [
+    totalAmount,
+    routeTotals,
+    selectedRoute,
+    isLowSustainable,
+    cartItems,
+    user,
+    dispatch,
+  ]);
 
   if (!routeTotals) return null;
 
@@ -59,7 +77,7 @@ const OrderSummary = ({selectedRoute, isLowSustainable, greenestRoute, totalAmou
       dispatch(clearCart());
       navigate("/paymentsuccess");
     } catch (err) {
-      console.error('Error saving order:', err);
+      console.error("Error saving order:", err);
     }
   };
 
@@ -83,8 +101,10 @@ const OrderSummary = ({selectedRoute, isLowSustainable, greenestRoute, totalAmou
               <label>Total Emissions</label>
               <div className={styles.divSection}>
                 {/* Fire 🔥 or Tree 🌱 Icon Based on Emissions */}
-                {isLowSustainable ? <ExhaustIcon/> : <TreeIcon />}
-                <p className={`font-semibold ${isLowSustainable ? "text-red-600" : "text-green-600"}`}>
+                {isLowSustainable ? <ExhaustIcon /> : <TreeIcon />}
+                <p
+                  className={`font-semibold ${isLowSustainable ? "text-red-600" : "text-green-600"}`}
+                >
                   {routeTotals.emissions} kg
                 </p>
               </div>
@@ -94,18 +114,22 @@ const OrderSummary = ({selectedRoute, isLowSustainable, greenestRoute, totalAmou
 
         <div className={styles.gridDiv}>
           <div className={styles.divSection}>
-          <DollarSign className={styles.dollar}  />
+            <DollarSign className={styles.dollar} />
             <div>
               <label>Item(s) total</label>
-              <p className="text-[18px]">${ Number(totalAmount|| 0).toFixed(2) }</p>
+              <p className="text-[18px]">
+                ${Number(totalAmount || 0).toFixed(2)}
+              </p>
             </div>
           </div>
 
           <div className={styles.divSection}>
-          <DollarSign className={styles.dollar}  />
+            <DollarSign className={styles.dollar} />
             <div>
               <label>Shipping</label>
-              <p className="text-[18px]">${ Number(routeTotals.cost || 0).toFixed(2) }</p>
+              <p className="text-[18px]">
+                ${Number(routeTotals.cost || 0).toFixed(2)}
+              </p>
             </div>
           </div>
         </div>
@@ -114,7 +138,12 @@ const OrderSummary = ({selectedRoute, isLowSustainable, greenestRoute, totalAmou
           <DollarSign className={styles.dollar} />
           <div>
             <label className="text-sm">Order total</label>
-            <p className="text-[22px] font-semibold">${ (Number(totalAmount || 0) + Number(routeTotals.cost || 0)).toFixed(2) }</p>
+            <p className="text-[22px] font-semibold">
+              $
+              {(
+                Number(totalAmount || 0) + Number(routeTotals.cost || 0)
+              ).toFixed(2)}
+            </p>
           </div>
         </div>
 
@@ -122,17 +151,23 @@ const OrderSummary = ({selectedRoute, isLowSustainable, greenestRoute, totalAmou
         <SustainabilityMessage isLowSustainable={isLowSustainable} />
 
         <div className={styles.actionSection}>
-          <ActionButton 
+          <ActionButton
             tooltip={isLowSustainable ? "shipping-info" : ""}
             text="Continue to Payment"
             onClick={handlePayment}
-            className= {isLowSustainable ? "btn-red":"btn"}
+            className={isLowSustainable ? "btn-red" : "btn"}
           />
-         <Tooltip id="shipping-info" className={styles.tooltip}> 
-          <p>Hi {user.userName},</p>
-          <p>🚨 This shipping option is basically a smoke machine for the planet. 🌍💨</p>
-          <p>Why not go for a greener choice? Your future self will thank you! 🌱</p> 
-        </Tooltip>
+          <Tooltip id="shipping-info" className={styles.tooltip}>
+            <p>Hi {user.userName},</p>
+            <p>
+              🚨 This shipping option is basically a smoke machine for the
+              planet. 🌍💨
+            </p>
+            <p>
+              Why not go for a greener choice? Your future self will thank you!
+              🌱
+            </p>
+          </Tooltip>
         </div>
       </div>
     </Card>

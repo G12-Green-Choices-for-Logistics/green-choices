@@ -20,6 +20,6 @@ const StarRatings = ({ rating = 0 }) => {
       ))}
     </div>
   );
-}
+};
 
 export default StarRatings;

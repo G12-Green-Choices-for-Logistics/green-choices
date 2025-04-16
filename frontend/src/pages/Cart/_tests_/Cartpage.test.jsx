@@ -1,6 +1,6 @@
-import React from 'react';
-import { render, screen, waitFor, fireEvent} from "@testing-library/react";
-import { describe, it, expect} from "vitest";
+import React from "react";
+import { render, screen, waitFor, fireEvent } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
 import cartReducer from "../../../redux/slices/cartSlice";
 import "@testing-library/jest-dom/vitest";
 import App from "../../../App.jsx";
@@ -23,40 +23,40 @@ const mockStore = configureStore({
 });
 
 function renderWithCart(cartItems) {
-    const store = configureStore({
-      reducer: {
-        cart: cartReducer, // use your real reducer
+  const store = configureStore({
+    reducer: {
+      cart: cartReducer, // use your real reducer
+    },
+    preloadedState: {
+      cart: {
+        items: cartItems,
       },
-      preloadedState: {
-        cart: {
-          items: cartItems,
-        },
-      },
-    });
-  
-    return render(
-      <Provider store={store}>
-        <BrowserRouter>
-          <Cart />
-        </BrowserRouter>
-      </Provider>
-    );
+    },
+  });
+
+  return render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Cart />
+      </BrowserRouter>
+    </Provider>,
+  );
 }
 
 const mockCartItems1 = [
   {
     name: "Cool Hat",
-    price: 25.00,
+    price: 25.0,
     quantity: 1,
     img: "/hat.jpg",
-    size: 3
+    size: 3,
   },
   {
     name: "Fancy Shoes",
-    price: 50.00,
+    price: 50.0,
     quantity: 2,
     img: "/shoes.jpg",
-    size: 3
+    size: 3,
   },
 ];
 
@@ -66,27 +66,28 @@ const mockCartItems2 = [
     price: 29.99,
     quantity: 3,
     img: "/hat.jpg",
-    size: 3
+    size: 3,
   },
   {
     name: "Regular Shoes",
-    price: 35.50,
+    price: 35.5,
     quantity: 2,
     img: "/shoes.jpg",
-    size: 3
+    size: 3,
   },
 ];
 
 describe("Cartpage", () => {
-
   //TC-052
   it("Should render Cart page", async () => {
     window.history.pushState({}, "", "/cart");
-    render(<App/>);
+    render(<App />);
     await waitFor(() => {
-        expect(screen.getByRole('link', {name: /Green Logistics/})).toBeInTheDocument();
+      expect(
+        screen.getByRole("link", { name: /Green Logistics/ }),
+      ).toBeInTheDocument();
     });
-  })
+  });
 
   //TC-053
   it("Should render cart items correctly", () => {
@@ -98,12 +99,16 @@ describe("Cartpage", () => {
     expect(screen.getByText("Fancy Shoes")).toBeInTheDocument();
 
     // Base Price check
-    expect(screen.getAllByRole("cell").find((cell) =>
-        cell.textContent?.replace(/\s+/g, "") === "$25"
-    )).toBeInTheDocument();
-    expect(screen.getAllByRole("cell").find((cell) =>
-        cell.textContent?.replace(/\s+/g, "") === "$50"
-    )).toBeInTheDocument();
+    expect(
+      screen
+        .getAllByRole("cell")
+        .find((cell) => cell.textContent?.replace(/\s+/g, "") === "$25"),
+    ).toBeInTheDocument();
+    expect(
+      screen
+        .getAllByRole("cell")
+        .find((cell) => cell.textContent?.replace(/\s+/g, "") === "$50"),
+    ).toBeInTheDocument();
 
     // 2nd test items
     renderWithCart(mockCartItems2);
@@ -113,12 +118,16 @@ describe("Cartpage", () => {
     expect(screen.getByText("Regular Shoes")).toBeInTheDocument();
 
     // Base Price check
-    expect(screen.getAllByRole("cell").find((cell) =>
-        cell.textContent?.replace(/\s+/g, "") === "$29.99"
-    )).toBeInTheDocument();
-    expect(screen.getAllByRole("cell").find((cell) =>
-        cell.textContent?.replace(/\s+/g, "") === "$35.5"
-    )).toBeInTheDocument();
+    expect(
+      screen
+        .getAllByRole("cell")
+        .find((cell) => cell.textContent?.replace(/\s+/g, "") === "$29.99"),
+    ).toBeInTheDocument();
+    expect(
+      screen
+        .getAllByRole("cell")
+        .find((cell) => cell.textContent?.replace(/\s+/g, "") === "$35.5"),
+    ).toBeInTheDocument();
   });
 
   //TC-054
@@ -153,12 +162,10 @@ describe("Cartpage", () => {
   it("Should handle no items in the cart", () => {
     renderWithCart([]);
 
-    const tbody = document.querySelector('tbody');
+    const tbody = document.querySelector("tbody");
 
     expect(tbody).toBeInTheDocument();
     expect(tbody?.children.length).toBe(0);
-
-
   });
 
   //TC-057
@@ -171,13 +178,12 @@ describe("Cartpage", () => {
             <Route path="/checkout" element={<div>Checkout Page</div>} />
           </Routes>
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
-  
+
     const button = screen.getByText(/Proceed to Checkout/i);
     fireEvent.click(button);
-  
+
     expect(screen.getByText("Checkout Page")).toBeInTheDocument();
   });
-
-})
+});

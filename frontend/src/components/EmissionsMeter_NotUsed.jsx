@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const EmissionMeter = ({ currentValue, maxValue, onEmissionsClick, className = "" }) => {
+const EmissionMeter = ({
+  currentValue,
+  maxValue,
+  onEmissionsClick,
+  className = "",
+}) => {
   const [rotation, setRotation] = useState(-90);
   const [label, setLabel] = useState("");
   const [color, setColor] = useState("");
@@ -12,7 +17,7 @@ const EmissionMeter = ({ currentValue, maxValue, onEmissionsClick, className = "
     // Update rotation with animation through CSS variable
     document.documentElement.style.setProperty(
       "--rotation",
-      `${newRotation}deg`
+      `${newRotation}deg`,
     );
     setRotation(newRotation);
 
@@ -85,7 +90,8 @@ const EmissionMeter = ({ currentValue, maxValue, onEmissionsClick, className = "
                 height: "60px",
                 backgroundColor: color,
                 transform: `rotate(${rotation}deg)`,
-                transition: "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease",
+                transition:
+                  "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease",
                 transformOrigin: "bottom center",
               }}
             >
@@ -102,7 +108,6 @@ const EmissionMeter = ({ currentValue, maxValue, onEmissionsClick, className = "
           <div className="inline-block bg-white px-4 py-2 rounded-full shadow-md">
             <p className="text-gray-600 font-medium">
               {label}: {currentValue.toLocaleString()} kg
-
             </p>
           </div>
         </div>
@@ -111,7 +116,8 @@ const EmissionMeter = ({ currentValue, maxValue, onEmissionsClick, className = "
         <div className="flex items-center ">
           <img src="/imgs/earth.png" className="h-[40px] w-[40px]" />
           <p className="text-center " style={{ color: color }}>
-            A Little More CO₂ Than We'd Like … But <span
+            A Little More CO₂ Than We'd Like … But{" "}
+            <span
               className="font-bold cursor-pointer"
               onClick={onEmissionsClick}
             >

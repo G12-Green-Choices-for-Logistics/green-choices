@@ -7,7 +7,7 @@ const initialState = {
     username: "",
     userid: null,
     email: "",
-    address: ""
+    address: "",
   },
   isAuthenticated: false,
 };

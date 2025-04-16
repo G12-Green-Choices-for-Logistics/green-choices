@@ -13,7 +13,7 @@ Follow these steps to get your React app up and running using Node.js .
 
 ### 1. Install Node.js
 
-If you don't have Node.js  installed, you can download it from the official Node.js website:
+If you don't have Node.js installed, you can download it from the official Node.js website:
 
 - [Download Node.js](https://nodejs.org)
 
@@ -30,8 +30,8 @@ nvm use 22.12
 npm install
 ```
 
-
 ### 3.Set up environment variable: Add a new file `.env` and add backend api url variable and update value to the actual api url instead of localhost.
+
 ```text
    VITE_APP_API_URL=localhost
 ```
@@ -43,4 +43,3 @@ To start the app in development mode, run:
 ```bash
 npm run dev
 ```
-

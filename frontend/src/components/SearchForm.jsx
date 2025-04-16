@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { MapPin } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { MapPin } from "lucide-react";
 
 const SearchForm = ({ onSearch }) => {
-  const [source, setSource] = useState('Toronto, Canada');
-  const [destination, setDestination] = useState('Sydney, Australia');
+  const [source, setSource] = useState("Toronto, Canada");
+  const [destination, setDestination] = useState("Sydney, Australia");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const SearchForm = ({ onSearch }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <h2 className="text-xl font-semibold mb-4">Find Routes</h2>
-      
+
       <div className="space-y-4">
         <div className="relative">
           <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
@@ -26,7 +26,7 @@ const SearchForm = ({ onSearch }) => {
             className="pl-10"
           />
         </div>
-        
+
         <div className="relative">
           <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
           <Input
@@ -38,8 +38,8 @@ const SearchForm = ({ onSearch }) => {
         </div>
       </div>
 
-      <Button 
-        type="submit" 
+      <Button
+        type="submit"
         className="w-full bg-green-600 hover:bg-green-700 text-white"
       >
         Search Routes

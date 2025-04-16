@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from "react";
 
 const TransportContext = createContext();
 
@@ -9,14 +9,17 @@ export const TransportProvider = ({ children }) => {
 
   const calculateTotals = (route, modes) => {
     if (!route || !modes) return null;
-    
-    return route.segments.reduce((acc, segment, index) => {
-      const modeIndex = segment.transportModes.indexOf(modes[index]);
-      acc.duration += segment.durations[modeIndex];
-      acc.cost += segment.costs[modeIndex];
-      acc.emissions += segment.carbonEmissions[modeIndex];
-      return acc;
-    }, { duration: 0, cost: 0, emissions: 0 });
+
+    return route.segments.reduce(
+      (acc, segment, index) => {
+        const modeIndex = segment.transportModes.indexOf(modes[index]);
+        acc.duration += segment.durations[modeIndex];
+        acc.cost += segment.costs[modeIndex];
+        acc.emissions += segment.carbonEmissions[modeIndex];
+        return acc;
+      },
+      { duration: 0, cost: 0, emissions: 0 },
+    );
   };
 
   useEffect(() => {
@@ -26,13 +29,15 @@ export const TransportProvider = ({ children }) => {
   }, [currentRoute, selectedModes]);
 
   return (
-    <TransportContext.Provider value={{
-      selectedModes,
-      setSelectedModes,
-      routeTotals,
-      setCurrentRoute,
-      calculateTotals
-    }}>
+    <TransportContext.Provider
+      value={{
+        selectedModes,
+        setSelectedModes,
+        routeTotals,
+        setCurrentRoute,
+        calculateTotals,
+      }}
+    >
       {children}
     </TransportContext.Provider>
   );
@@ -41,7 +46,7 @@ export const TransportProvider = ({ children }) => {
 export const useTransport = () => {
   const context = useContext(TransportContext);
   if (!context) {
-    throw new Error('useTransport must be used within a TransportProvider');
+    throw new Error("useTransport must be used within a TransportProvider");
   }
   return context;
-}; 
+};
