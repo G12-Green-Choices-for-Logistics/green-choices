@@ -1,5 +1,5 @@
 // controllers/userController.js
-const userModel = require('../models/user');
+const userModel = require("../models/user");
 
 // Create a new user
 const createUser = async (req, res) => {
@@ -7,12 +7,12 @@ const createUser = async (req, res) => {
     const user = await userModel.createUser(req.body);
     res.status(201).json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -24,17 +24,17 @@ const updateUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        error: 'User not found'
+        error: "User not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -46,39 +46,42 @@ const getUserById = async (req, res) => {
     if (!user) {
       return res.status(404).json({
         success: false,
-        error: 'User not found'
+        error: "User not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
 
 const getUserByCredentials = async (req, res) => {
   try {
-    const user = await userModel.getUserByCredentials(req.query.email, req.query.password);
+    const user = await userModel.getUserByCredentials(
+      req.query.email,
+      req.query.password,
+    );
 
     if (!user) {
       return res.status(404).json({
         success: false,
-        error: 'User not found'
+        error: "User not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: user
+      data: user,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -90,12 +93,12 @@ const getAllUsers = async (req, res) => {
     res.status(200).json({
       success: true,
       count: users.length,
-      data: users
+      data: users,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -107,12 +110,12 @@ const getUserAuditHistory = async (req, res) => {
     res.status(200).json({
       success: true,
       count: history.length,
-      data: history
+      data: history,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -123,5 +126,5 @@ module.exports = {
   getUserById,
   getUserByCredentials,
   getAllUsers,
-  getUserAuditHistory
+  getUserAuditHistory,
 };

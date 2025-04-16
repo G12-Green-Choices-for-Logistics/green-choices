@@ -1,5 +1,5 @@
-const db = require('../config/db');
-const bcrypt = require('bcrypt');
+const db = require("../config/db");
+const bcrypt = require("bcrypt");
 
 /**
  * Create a new user
@@ -14,23 +14,23 @@ const bcrypt = require('bcrypt');
 const createUser = async (userData) => {
   const { firstName, lastName, address, email, password } = userData;
   const hashedPassword = await bcrypt.hash(password, 10);
-  
+
   try {
     const result = await db.query(
-      'CALL sp_InsertUser($1, $2, $3, $4, $5, NULL)',
-      [firstName, lastName, address, email, hashedPassword]
+      "CALL sp_InsertUser($1, $2, $3, $4, $5, NULL)",
+      [firstName, lastName, address, email, hashedPassword],
     );
-    
+
     // PostgreSQL stored procedure with OUT parameter doesn't return value directly
     // Let's query to get the newly created user
     const userResult = await db.query(
-      'SELECT * FROM User_Info WHERE Email = $1', 
-      [email]
+      "SELECT * FROM User_Info WHERE Email = $1",
+      [email],
     );
-    
+
     return userResult.rows[0];
   } catch (error) {
-    console.error('Error creating user:', error);
+    console.error("Error creating user:", error);
     throw error;
   }
 };
@@ -43,17 +43,20 @@ const createUser = async (userData) => {
  */
 const updateUser = async (userId, userData) => {
   const { firstName, lastName, address, email } = userData;
-  
+
   try {
-    await db.query(
-      'CALL sp_UpdateUser($1, $2, $3, $4, $5)',
-      [userId, firstName, lastName, address, email]
-    );
-    
-    const result = await db.query('SELECT * FROM fn_GetUserByID($1)', [userId]);
+    await db.query("CALL sp_UpdateUser($1, $2, $3, $4, $5)", [
+      userId,
+      firstName,
+      lastName,
+      address,
+      email,
+    ]);
+
+    const result = await db.query("SELECT * FROM fn_GetUserByID($1)", [userId]);
     return result.rows[0];
   } catch (error) {
-    console.error('Error updating user:', error);
+    console.error("Error updating user:", error);
     throw error;
   }
 };
@@ -65,10 +68,10 @@ const updateUser = async (userId, userData) => {
  */
 const getUserById = async (userId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetUserByID($1)', [userId]);
+    const result = await db.query("SELECT * FROM fn_GetUserByID($1)", [userId]);
     return result.rows[0];
   } catch (error) {
-    console.error('Error getting user by ID:', error);
+    console.error("Error getting user by ID:", error);
     throw error;
   }
 };
@@ -81,13 +84,15 @@ const getUserById = async (userId) => {
  */
 const getUserByCredentials = async (email, password) => {
   try {
-    const user = await db.query('SELECT * FROM User_Info WHERE Email = $1', [email]);
-    
+    const user = await db.query("SELECT * FROM User_Info WHERE Email = $1", [
+      email,
+    ]);
+
     // Check if user exists
     if (user.rows.length === 0) {
       return undefined;
     }
-    
+
     let correctPassword = await bcrypt.compare(password, user.rows[0].password);
 
     if (correctPassword) {
@@ -96,12 +101,11 @@ const getUserByCredentials = async (email, password) => {
       delete userWithoutPassword.password;
       return userWithoutPassword;
     }
-    
+
     // Explicitly return undefined for invalid password
     return undefined;
-
   } catch (error) {
-    console.error('Error getting user by credentials:', error);
+    console.error("Error getting user by credentials:", error);
     throw error;
   }
 };
@@ -112,10 +116,10 @@ const getUserByCredentials = async (email, password) => {
  */
 const getAllUsers = async () => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetAllUsers()');
+    const result = await db.query("SELECT * FROM fn_GetAllUsers()");
     return result.rows;
   } catch (error) {
-    console.error('Error getting all users:', error);
+    console.error("Error getting all users:", error);
     throw error;
   }
 };
@@ -127,10 +131,12 @@ const getAllUsers = async () => {
  */
 const getUserAuditHistory = async (userId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetUserAuditHistory($1)', [userId]);
+    const result = await db.query("SELECT * FROM fn_GetUserAuditHistory($1)", [
+      userId,
+    ]);
     return result.rows;
   } catch (error) {
-    console.error('Error getting user audit history:', error);
+    console.error("Error getting user audit history:", error);
     throw error;
   }
 };
@@ -141,5 +147,5 @@ module.exports = {
   getUserById,
   getUserByCredentials,
   getAllUsers,
-  getUserAuditHistory
+  getUserAuditHistory,
 };

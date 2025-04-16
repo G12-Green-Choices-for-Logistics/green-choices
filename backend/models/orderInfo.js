@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require("../config/db");
 
 /**
  * Create a new order
@@ -11,27 +11,33 @@ const db = require('../config/db');
  * @returns {Promise<Object>} - Created order object
  */
 const createOrder = async (orderData) => {
-    const {UserID, ShippingAddress, TotalPrice, DeliveryCharge, LastUpdatedUserID} = orderData;
-    try {
-        const sp_out = await db.query(
-            'CALL sp_InsertOrder($1, $2, $3, $4, $5, NULL)',
-            [UserID, ShippingAddress, TotalPrice, DeliveryCharge, LastUpdatedUserID]
-        );
-        //console.log(sp_out.rows[0].p_orderid);
-        
-        // PostgreSQL stored procedure with OUT parameter only returns that value
-        // Aquiring the whole created row for return
-        const result = await db.query(
-            'SELECT * FROM Order_Info WHERE OrderID = $1', 
-            [sp_out.rows[0].p_orderid]
-        );
-        
-        //console.log(result.rows[0]);
-        return result.rows[0];
-    } catch (error) {
-        console.error('Error creating order:', error);
-        throw error;
-    }
+  const {
+    UserID,
+    ShippingAddress,
+    TotalPrice,
+    DeliveryCharge,
+    LastUpdatedUserID,
+  } = orderData;
+  try {
+    const sp_out = await db.query(
+      "CALL sp_InsertOrder($1, $2, $3, $4, $5, NULL)",
+      [UserID, ShippingAddress, TotalPrice, DeliveryCharge, LastUpdatedUserID],
+    );
+    //console.log(sp_out.rows[0].p_orderid);
+
+    // PostgreSQL stored procedure with OUT parameter only returns that value
+    // Aquiring the whole created row for return
+    const result = await db.query(
+      "SELECT * FROM Order_Info WHERE OrderID = $1",
+      [sp_out.rows[0].p_orderid],
+    );
+
+    //console.log(result.rows[0]);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error creating order:", error);
+    throw error;
+  }
 };
 
 /**
@@ -46,21 +52,34 @@ const createOrder = async (orderData) => {
  * @returns {Promise<Object>} - Updated order object
  */
 const updateOrder = async (OrderId, orderData) => {
-    const {UserID, ShippingAddress, TotalPrice, DeliveryCharge, LastUpdatedUserID} = orderData;
-  
-    try {
-        await db.query(
-            'CALL sp_UpdateOrder($1, $2, $3, $4, $5, $6)',
-            [OrderId, UserID, ShippingAddress, TotalPrice, DeliveryCharge, LastUpdatedUserID]
-        );
-    
-        const result = await db.query('SELECT * FROM Order_Info WHERE OrderID = $1', [OrderId]);
-        //console.log(result.rows[0])
-        return result.rows[0];
-    } catch (error) {
-        console.error('Error updating order:', error);
-        throw error;
-    }
+  const {
+    UserID,
+    ShippingAddress,
+    TotalPrice,
+    DeliveryCharge,
+    LastUpdatedUserID,
+  } = orderData;
+
+  try {
+    await db.query("CALL sp_UpdateOrder($1, $2, $3, $4, $5, $6)", [
+      OrderId,
+      UserID,
+      ShippingAddress,
+      TotalPrice,
+      DeliveryCharge,
+      LastUpdatedUserID,
+    ]);
+
+    const result = await db.query(
+      "SELECT * FROM Order_Info WHERE OrderID = $1",
+      [OrderId],
+    );
+    //console.log(result.rows[0])
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error updating order:", error);
+    throw error;
+  }
 };
 
 /**
@@ -68,32 +87,33 @@ const updateOrder = async (OrderId, orderData) => {
  * @param {Object} detailData - Detail data object
  * @param {Integer} detailData.OrderID - ID of the order the detail is related to
  * @param {Integer} detailData.ProductID - ID of the product included
- * @param {Integer} detailData.ProductQuantity - Amount of product ordered 
+ * @param {Integer} detailData.ProductQuantity - Amount of product ordered
  * @param {number} detailData.TotalPrice - Combined price of all instances of this product
  * @param {Integer} detailData.LastUpdatedUserID - The user who last edited order detail
  * @returns {Promise<Object>} - Created order detail object
-*/
+ */
 const createOrderDetail = async (detailData) => {
-    const {OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID} = detailData;
-    try {
-        const sp_out = await db.query(
-            'CALL sp_InsertOrder_Detail($1, $2, $3, $4, $5, NULL)',
-            [OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID]
-        );
-        //console.log(sp_out.rows[0].p_orderdetailid);
-        
-        // PostgreSQL stored procedure with OUT parameter only returns that value
-        // Aquiring the whole created row for return
-        const result = await db.query(
-            'SELECT * FROM Order_Details WHERE OrderDetailID = $1',
-            [sp_out.rows[0].p_orderdetailid]
-        );
-        //console.log(result.rows[0]);
-        return result.rows[0];
-    } catch (error) {
-        console.error('Error creating order detail:', error);
-        throw error;
-    }
+  const { OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID } =
+    detailData;
+  try {
+    const sp_out = await db.query(
+      "CALL sp_InsertOrder_Detail($1, $2, $3, $4, $5, NULL)",
+      [OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID],
+    );
+    //console.log(sp_out.rows[0].p_orderdetailid);
+
+    // PostgreSQL stored procedure with OUT parameter only returns that value
+    // Aquiring the whole created row for return
+    const result = await db.query(
+      "SELECT * FROM Order_Details WHERE OrderDetailID = $1",
+      [sp_out.rows[0].p_orderdetailid],
+    );
+    //console.log(result.rows[0]);
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error creating order detail:", error);
+    throw error;
+  }
 };
 
 /**
@@ -102,27 +122,35 @@ const createOrderDetail = async (detailData) => {
  * @param {Object} detailData - Detail data object
  * @param {Integer} detailData.OrderID - ID of the order the detail is related to
  * @param {Integer} detailData.ProductID - ID of the product included
- * @param {Integer} detailData.ProductQuantity - Amount of product ordered 
+ * @param {Integer} detailData.ProductQuantity - Amount of product ordered
  * @param {number} detailData.TotalPrice - Combined price of all instances of this product
  * @param {Integer} detailData.LastUpdatedUserID - The user who last edited order detail
  * @returns {Promise<Object>} - Updated order detail object
-*/
+ */
 const updateOrderDetail = async (OrderDetailId, detailData) => {
-    const {OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID} = detailData;
-  
-    try {
-        await db.query(
-            'CALL sp_UpdateOrder_Detail($1, $2, $3, $4, $5, $6)',
-            [OrderDetailId, OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID]
-        );
-    
-        const result = await db.query('SELECT * FROM Order_Details WHERE OrderID = $1', [OrderDetailId]);
-        //console.log(result.rows[0])
-        return result.rows[0];
-    } catch (error) {
-        console.error('Error updating order detail:', error);
-        throw error;
-    }
+  const { OrderID, ProductID, ProductQuantity, TotalPrice, LastUpdatedUserID } =
+    detailData;
+
+  try {
+    await db.query("CALL sp_UpdateOrder_Detail($1, $2, $3, $4, $5, $6)", [
+      OrderDetailId,
+      OrderID,
+      ProductID,
+      ProductQuantity,
+      TotalPrice,
+      LastUpdatedUserID,
+    ]);
+
+    const result = await db.query(
+      "SELECT * FROM Order_Details WHERE OrderID = $1",
+      [OrderDetailId],
+    );
+    //console.log(result.rows[0])
+    return result.rows[0];
+  } catch (error) {
+    console.error("Error updating order detail:", error);
+    throw error;
+  }
 };
 
 // TMP smoke tests until unit tests are implemented
@@ -132,8 +160,8 @@ const updateOrderDetail = async (OrderDetailId, detailData) => {
 //createOrderDetail({OrderID:2, ProductID:22, ProductQuantity:7, TotalPrice:21, LastUpdatedUserID:1});
 
 module.exports = {
-    createOrder,
-    updateOrder,
-    createOrderDetail,
-    updateOrderDetail
+  createOrder,
+  updateOrder,
+  createOrderDetail,
+  updateOrderDetail,
 };

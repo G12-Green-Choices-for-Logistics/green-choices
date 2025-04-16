@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const db = require("../config/db");
 
 /**
  * Create a new order detail
@@ -11,17 +11,19 @@ const db = require('../config/db');
  */
 const createOrderDetail = async (orderDetailData) => {
   const { orderId, productId, quantity, price } = orderDetailData;
-  
+
   try {
-    await db.query(
-      'CALL sp_InsertOrderDetail($1, $2, $3, $4, NULL)',
-      [orderId, productId, quantity, price]
-    );
-    
+    await db.query("CALL sp_InsertOrderDetail($1, $2, $3, $4, NULL)", [
+      orderId,
+      productId,
+      quantity,
+      price,
+    ]);
+
     const result = getOrderDetailsByOrderID(orderId);
     return result;
   } catch (error) {
-    console.error('Error creating order detail:', error);
+    console.error("Error creating order detail:", error);
     throw error;
   }
 };
@@ -34,17 +36,18 @@ const createOrderDetail = async (orderDetailData) => {
  */
 const updateOrderDetail = async (orderDetailId, orderDetailData) => {
   const { quantity, price } = orderDetailData;
-  
+
   try {
-    await db.query(
-      'CALL sp_UpdateOrderDetail($1, $2, $3)',
-      [orderDetailId, quantity, price]
-    );
-    
+    await db.query("CALL sp_UpdateOrderDetail($1, $2, $3)", [
+      orderDetailId,
+      quantity,
+      price,
+    ]);
+
     const result = await getOrderDetailByID(orderDetailId);
     return result;
   } catch (error) {
-    console.error('Error updating order detail:', error);
+    console.error("Error updating order detail:", error);
     throw error;
   }
 };
@@ -56,10 +59,13 @@ const updateOrderDetail = async (orderDetailId, orderDetailData) => {
  */
 const getOrderDetailsByOrderID = async (orderId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetOrderDetailsByOrderID($1)', [orderId]);
+    const result = await db.query(
+      "SELECT * FROM fn_GetOrderDetailsByOrderID($1)",
+      [orderId],
+    );
     return result.rows;
   } catch (error) {
-    console.error('Error getting order details by order ID:', error);
+    console.error("Error getting order details by order ID:", error);
     throw error;
   }
 };
@@ -71,10 +77,12 @@ const getOrderDetailsByOrderID = async (orderId) => {
  */
 const getOrderDetailByID = async (orderDetailId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetOrderDetailByID($1)', [orderDetailId]);
+    const result = await db.query("SELECT * FROM fn_GetOrderDetailByID($1)", [
+      orderDetailId,
+    ]);
     return result.rows[0];
   } catch (error) {
-    console.error('Error getting order detail by ID:', error);
+    console.error("Error getting order detail by ID:", error);
     throw error;
   }
 };
@@ -86,10 +94,13 @@ const getOrderDetailByID = async (orderDetailId) => {
  */
 const getOrderDetailAuditHistory = async (orderDetailId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetOrderDetailAuditHistory($1)', [orderDetailId]);
+    const result = await db.query(
+      "SELECT * FROM fn_GetOrderDetailAuditHistory($1)",
+      [orderDetailId],
+    );
     return result.rows;
   } catch (error) {
-    console.error('Error getting order detail audit history:', error);
+    console.error("Error getting order detail audit history:", error);
     throw error;
   }
 };
@@ -99,5 +110,5 @@ module.exports = {
   updateOrderDetail,
   getOrderDetailsByOrderID,
   getOrderDetailByID,
-  getOrderDetailAuditHistory
+  getOrderDetailAuditHistory,
 };

@@ -11,7 +11,10 @@
       "carbon_emission": [30, 148],
       "destination_geo_location": [40.4168, -3.7038],
       "source_geo_location": [40.7128, -74.006],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "London, UK",
@@ -23,7 +26,10 @@
       "carbon_emission": [50, 143],
       "destination_geo_location": [51.5074, -0.1278],
       "source_geo_location": [40.7128, -74.006],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Paris, France",
@@ -35,7 +41,10 @@
       "carbon_emission": [38, 150],
       "destination_geo_location": [48.8566, 2.3522],
       "source_geo_location": [40.7128, -74.006],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     }
   ],
   "Los Angeles, USA": [
@@ -61,7 +70,10 @@
       "carbon_emission": [80, 229],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [34.0522, -118.2437],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Sydney, Australia",
@@ -73,7 +85,10 @@
       "carbon_emission": [108, 312],
       "destination_geo_location": [-33.8688, 151.2093],
       "source_geo_location": [34.0522, -118.2437],
-      "emission_reason": ["Long distance sea travel still causes a lot of emissions", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Long distance sea travel still causes a lot of emissions",
+        "Long distance air travel causes a lot of emissions"
+      ]
     }
   ],
   "Madrid, Spain": [
@@ -87,7 +102,10 @@
       "carbon_emission": [7, 35],
       "destination_geo_location": [48.8566, 2.3522],
       "source_geo_location": [40.4168, -3.7038],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Berlin, Germany",
@@ -111,7 +129,11 @@
       "carbon_emission": [30, 13, 40],
       "destination_geo_location": [41.9028, 12.4964],
       "source_geo_location": [40.4168, -3.7038],
-      "emission_reason": ["", "", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Rome, Italy": [
@@ -125,7 +147,10 @@
       "carbon_emission": [18, 36],
       "destination_geo_location": [48.2082, 16.3738],
       "source_geo_location": [41.9028, 12.4964],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Paris, France": [
@@ -139,7 +164,10 @@
       "carbon_emission": [39, 44],
       "destination_geo_location": [60.1695, 24.9354],
       "source_geo_location": [48.8566, 2.3522],
-      "emission_reason": ["Route has the truck going on ship from Talinn to Helsinki", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "Route has the truck going on ship from Talinn to Helsinki",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Amsterdam, Netherlands",
@@ -151,7 +179,10 @@
       "carbon_emission": [3, 19],
       "destination_geo_location": [52.3676, 4.9041],
       "source_geo_location": [48.8566, 2.3522],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Brussels, Belgium",
@@ -163,7 +194,10 @@
       "carbon_emission": [5, 17],
       "destination_geo_location": [50.8503, 4.3517],
       "source_geo_location": [48.8566, 2.3522],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Helsinki, Finland": [
@@ -177,7 +211,10 @@
       "carbon_emission": [18, 30],
       "destination_geo_location": [52.2297, 21.0122],
       "source_geo_location": [60.1695, 24.9354],
-      "emission_reason": ["Route has the truck going on ship from Talinn to Helsinki", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "Route has the truck going on ship from Talinn to Helsinki",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Amsterdam, Netherlands": [
@@ -191,7 +228,10 @@
       "carbon_emission": [3, 12],
       "destination_geo_location": [50.8503, 4.3517],
       "source_geo_location": [52.3676, 4.9041],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Brussels, Belgium": [
@@ -205,7 +245,10 @@
       "carbon_emission": [3, 12],
       "destination_geo_location": [52.3676, 4.9041],
       "source_geo_location": [50.8503, 4.3517],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "London, UK": [
@@ -219,7 +262,10 @@
       "carbon_emission": [17, 30],
       "destination_geo_location": [52.52, 13.405],
       "source_geo_location": [51.5074, -0.1278],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Rome, Italy",
@@ -231,7 +277,11 @@
       "carbon_emission": [18, 34, 42],
       "destination_geo_location": [41.9028, 12.4964],
       "source_geo_location": [51.5074, -0.1278],
-      "emission_reason": ["", "Sea option has to go far longer route compared to others", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "Sea option has to go far longer route compared to others",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Vienna, Austria",
@@ -243,7 +293,10 @@
       "carbon_emission": [20, 35],
       "destination_geo_location": [48.2082, 16.3738],
       "source_geo_location": [51.5074, -0.1278],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Vienna, Austria": [
@@ -257,7 +310,10 @@
       "carbon_emission": [18, 27],
       "destination_geo_location": [41.9028, 12.4964],
       "source_geo_location": [48.2082, 16.3738],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Berlin, Germany": [
@@ -271,7 +327,10 @@
       "carbon_emission": [24, 33],
       "destination_geo_location": [60.1695, 24.9354],
       "source_geo_location": [52.52, 13.405],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Warsaw, Poland",
@@ -283,7 +342,10 @@
       "carbon_emission": [8, 17],
       "destination_geo_location": [52.2297, 21.0122],
       "source_geo_location": [52.52, 13.405],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Prague, Czech Republic",
@@ -295,7 +357,10 @@
       "carbon_emission": [3, 14],
       "destination_geo_location": [50.0755, 14.4378],
       "source_geo_location": [52.52, 13.405],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Warsaw, Poland": [
@@ -309,7 +374,10 @@
       "carbon_emission": [18, 35],
       "destination_geo_location": [60.1695, 24.9354],
       "source_geo_location": [52.2297, 21.0122],
-      "emission_reason": ["Route has the truck going on ship from Helsinki to Talinn", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "Route has the truck going on ship from Helsinki to Talinn",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Prague, Czech Republic": [
@@ -323,7 +391,10 @@
       "carbon_emission": [5, 10],
       "destination_geo_location": [48.2082, 16.3738],
       "source_geo_location": [50.0755, 14.4378],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Toronto, Canada": [
@@ -337,7 +408,10 @@
       "carbon_emission": [189, 260],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [43.6511, -79.3832],
-      "emission_reason": ["Sea route has to go through the long way around by Panama Canal", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Sea route has to go through the long way around by Panama Canal",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Singapore, Singapore",
@@ -349,7 +423,10 @@
       "carbon_emission": [234, 390],
       "destination_geo_location": [1.3521, 103.8198],
       "source_geo_location": [43.6511, -79.3832],
-      "emission_reason": ["Sea route has to go through the long way around by Panama Canal", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Sea route has to go through the long way around by Panama Canal",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Hong Kong, China",
@@ -361,7 +438,10 @@
       "carbon_emission": [234, 312],
       "destination_geo_location": [22.3193, 114.1694],
       "source_geo_location": [43.6511, -79.3832],
-      "emission_reason": ["Sea route has to go through the long way around by Panama Canal", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Sea route has to go through the long way around by Panama Canal",
+        "Long distance air travel causes a lot of emissions"
+      ]
     }
   ],
   "Hong Kong, China": [
@@ -375,7 +455,11 @@
       "carbon_emission": [40, 33, 62],
       "destination_geo_location": [39.9042, 116.4074],
       "source_geo_location": [22.3193, 114.1694],
-      "emission_reason": ["Due to high traffic for the route the emissions are higher", "Due to minimal regulations by Chinese Government on ship engines, emissions are higher", "Due to minimal regulations by Chinese Government on airplane engines, emissions are higher"]
+      "emission_reason": [
+        "Due to high traffic for the route the emissions are higher",
+        "Due to minimal regulations by Chinese Government on ship engines, emissions are higher",
+        "Due to minimal regulations by Chinese Government on airplane engines, emissions are higher"
+      ]
     }
   ],
   "Tokyo, Japan": [
@@ -389,7 +473,10 @@
       "carbon_emission": [74, 205],
       "destination_geo_location": [-33.8688, 151.2093],
       "source_geo_location": [35.6895, 139.6917],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Seoul, South Korea",
@@ -401,7 +488,10 @@
       "carbon_emission": [19, 44],
       "destination_geo_location": [37.5665, 126.978],
       "source_geo_location": [35.6895, 139.6917],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Bangkok, Thailand",
@@ -413,7 +503,10 @@
       "carbon_emission": [84, 132],
       "destination_geo_location": [13.7563, 100.5018],
       "source_geo_location": [35.6895, 139.6917],
-      "emission_reason": ["", "Due to minimal regulations by Thai Government on airplane engines, emissions are higher"]
+      "emission_reason": [
+        "",
+        "Due to minimal regulations by Thai Government on airplane engines, emissions are higher"
+      ]
     },
     {
       "destination": "Toronto, Canada",
@@ -425,7 +518,10 @@
       "carbon_emission": [189, 260],
       "destination_geo_location": [43.6511, -79.3832],
       "source_geo_location": [35.6895, 139.6917],
-      "emission_reason": ["Sea route has to go through the long way around by Panama Canal", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Sea route has to go through the long way around by Panama Canal",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Los Angeles, USA",
@@ -437,7 +533,10 @@
       "carbon_emission": [80, 230],
       "destination_geo_location": [34.0522, -118.2437],
       "source_geo_location": [35.6895, 139.6917],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     }
   ],
   "Sydney, Australia": [
@@ -451,7 +550,10 @@
       "carbon_emission": [74, 205],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [-33.8688, 151.2093],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Singapore, Singapore",
@@ -463,7 +565,10 @@
       "carbon_emission": [61, 164],
       "destination_geo_location": [1.3521, 103.8198],
       "source_geo_location": [-33.8688, 151.2093],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Jakarta, Indonesia",
@@ -475,7 +580,10 @@
       "carbon_emission": [64, 143],
       "destination_geo_location": [-6.2088, 106.8456],
       "source_geo_location": [-33.8688, 151.2093],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Kuala Lumpur, Malaysia",
@@ -487,7 +595,10 @@
       "carbon_emission": [72, 172],
       "destination_geo_location": [3.139, 101.6869],
       "source_geo_location": [-33.8688, 151.2093],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "New York, USA",
@@ -499,7 +610,10 @@
       "carbon_emission": [162, 416],
       "destination_geo_location": [40.7128, -74.006],
       "source_geo_location": [-33.8688, 151.2093],
-      "emission_reason": ["Long distance sea travel still causes a lot of emissions", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Long distance sea travel still causes a lot of emissions",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Los Angeles, USA",
@@ -511,7 +625,10 @@
       "carbon_emission": [108, 312],
       "destination_geo_location": [34.0522, -118.2437],
       "source_geo_location": [-33.8688, 151.2093],
-      "emission_reason": ["Long distance sea travel still causes a lot of emissions", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Long distance sea travel still causes a lot of emissions",
+        "Long distance air travel causes a lot of emissions"
+      ]
     }
   ],
   "Seoul, South Korea": [
@@ -525,7 +642,10 @@
       "carbon_emission": [17, 42],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [37.5665, 126.978],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Bangkok, Thailand": [
@@ -539,7 +659,10 @@
       "carbon_emission": [51, 140],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [13.7563, 100.5018],
-      "emission_reason": ["", "Due to minimal regulations by Thai Government on airplane engines, emissions are higher"]
+      "emission_reason": [
+        "",
+        "Due to minimal regulations by Thai Government on airplane engines, emissions are higher"
+      ]
     }
   ],
   "Singapore, Singapore": [
@@ -553,7 +676,10 @@
       "carbon_emission": [68, 164],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [1.3521, 103.8198],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Jakarta, Indonesia",
@@ -565,7 +691,10 @@
       "carbon_emission": [9, 28],
       "destination_geo_location": [-6.2088, 106.8456],
       "source_geo_location": [1.3521, 103.8198],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Kuala Lumpur, Malaysia",
@@ -577,7 +706,11 @@
       "carbon_emission": [15, 20, 36],
       "destination_geo_location": [3.139, 101.6869],
       "source_geo_location": [1.3521, 103.8198],
-      "emission_reason": ["", "", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Jakarta, Indonesia": [
@@ -591,7 +724,10 @@
       "carbon_emission": [9, 29],
       "destination_geo_location": [1.3521, 103.8198],
       "source_geo_location": [-6.2088, 106.8456],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Kuala Lumpur, Malaysia": [
@@ -605,7 +741,11 @@
       "carbon_emission": [15, 20, 35],
       "destination_geo_location": [1.3521, 103.8198],
       "source_geo_location": [3.139, 101.6869],
-      "emission_reason": ["", "", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Mumbai, India": [
@@ -619,7 +759,10 @@
       "carbon_emission": [78, 240],
       "destination_geo_location": [-33.9249, 18.4241],
       "source_geo_location": [19.076, 72.8777],
-      "emission_reason": ["", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Buenos Aires, Argentina",
@@ -631,7 +774,10 @@
       "carbon_emission": [140, 390],
       "destination_geo_location": [-34.6037, -58.3816],
       "source_geo_location": [19.076, 72.8777],
-      "emission_reason": ["Long distance sea travel still causes a lot of emissions", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Long distance sea travel still causes a lot of emissions",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "Dubai, UAE",
@@ -643,7 +789,10 @@
       "carbon_emission": [19, 80],
       "destination_geo_location": [25.276987, 55.296249],
       "source_geo_location": [19.076, 72.8777],
-      "emission_reason": ["", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by UAE's government"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by UAE's government"
+      ]
     },
     {
       "destination": "Jakarta, Indonesia",
@@ -655,7 +804,10 @@
       "carbon_emission": [47, 125],
       "destination_geo_location": [-6.2088, 106.8456],
       "source_geo_location": [19.076, 72.8777],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient"
+      ]
     },
     {
       "destination": "Singapore, Singapore",
@@ -679,7 +831,10 @@
       "carbon_emission": [66, 120],
       "destination_geo_location": [22.3193, 114.1694],
       "source_geo_location": [19.076, 72.8777],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient"
+      ]
     },
     {
       "destination": "Tokyo, Japan",
@@ -691,7 +846,10 @@
       "carbon_emission": [100, 180],
       "destination_geo_location": [35.6895, 139.6917],
       "source_geo_location": [19.076, 72.8777],
-      "emission_reason": ["Ship for this route has an inefficient engine due to it being outdated", "Aircraft used for this route isn't the most efficient"]
+      "emission_reason": [
+        "Ship for this route has an inefficient engine due to it being outdated",
+        "Aircraft used for this route isn't the most efficient"
+      ]
     }
   ],
   "Dubai, UAE": [
@@ -705,7 +863,10 @@
       "carbon_emission": [19, 80],
       "destination_geo_location": [19.076, 72.8777],
       "source_geo_location": [25.276987, 55.296249],
-      "emission_reason": ["", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by UAE's government"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by UAE's government"
+      ]
     },
     {
       "destination": "Cape Town, South Africa",
@@ -717,7 +878,10 @@
       "carbon_emission": [90, 200],
       "destination_geo_location": [-33.9249, 18.4241],
       "source_geo_location": [25.276987, 55.296249],
-      "emission_reason": ["Ship for this route has an inefficient engine due to it being outdated", "Aircraft used for this route is inefficient and the distance is long"]
+      "emission_reason": [
+        "Ship for this route has an inefficient engine due to it being outdated",
+        "Aircraft used for this route is inefficient and the distance is long"
+      ]
     },
     {
       "destination": "Buenos Aires, Argentina",
@@ -729,7 +893,10 @@
       "carbon_emission": [140, 354],
       "destination_geo_location": [-34.6037, -58.3816],
       "source_geo_location": [25.276987, 55.296249],
-      "emission_reason": ["Ship for this route uses cheap high emission fuel", "Aircraft used for this route is inefficient"]
+      "emission_reason": [
+        "Ship for this route uses cheap high emission fuel",
+        "Aircraft used for this route is inefficient"
+      ]
     },
     {
       "destination": "New York, USA",
@@ -741,7 +908,10 @@
       "carbon_emission": [134, 286],
       "destination_geo_location": [40.7128, -74.006],
       "source_geo_location": [25.276987, 55.296249],
-      "emission_reason": ["Long distance sea travel still causes a lot of emissions", "Long distance air travel causes a lot of emissions"]
+      "emission_reason": [
+        "Long distance sea travel still causes a lot of emissions",
+        "Long distance air travel causes a lot of emissions"
+      ]
     },
     {
       "destination": "London, UK",
@@ -753,7 +923,10 @@
       "carbon_emission": [99, 143],
       "destination_geo_location": [51.5074, -0.1278],
       "source_geo_location": [25.276987, 55.296249],
-      "emission_reason": ["", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by UAE's government"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by UAE's government"
+      ]
     }
   ],
   "Cape Town, South Africa": [
@@ -767,7 +940,10 @@
       "carbon_emission": [54, 156],
       "destination_geo_location": [-22.9068, -43.1729],
       "source_geo_location": [-33.9249, 18.4241],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     },
     {
       "destination": "Lagos, Nigeria",
@@ -779,7 +955,11 @@
       "carbon_emission": [101, 43, 140],
       "destination_geo_location": [6.5244, 3.3792],
       "source_geo_location": [-33.9249, 18.4241],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     },
     {
       "destination": "Nairobi, Kenya",
@@ -791,10 +971,13 @@
       "carbon_emission": [76, 104],
       "destination_geo_location": [-1.2921, 36.8219],
       "source_geo_location": [-33.9249, 18.4241],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     }
   ],
-"Rio de Janeiro, Brazil": [
+  "Rio de Janeiro, Brazil": [
     {
       "destination": "Cape Town, South Africa",
       "mode": ["sea", "plane"],
@@ -805,7 +988,10 @@
       "carbon_emission": [54, 160],
       "destination_geo_location": [-22.9068, -43.1729],
       "source_geo_location": [-22.9068, -43.1729],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     }
   ],
   "Lagos, Nigeria": [
@@ -819,7 +1005,11 @@
       "carbon_emission": [104, 43, 140],
       "destination_geo_location": [-22.9068, -43.1729],
       "source_geo_location": [6.5244, 3.3792],
-      "emission_reason": ["Some roads for this route aren't in the best condition and truck used for this route is outdated", "", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition and truck used for this route is outdated",
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     }
   ],
   "Nairobi, Kenya": [
@@ -833,7 +1023,10 @@
       "carbon_emission": [76, 104],
       "destination_geo_location": [-22.9068, -43.1729],
       "source_geo_location": [-1.2921, 36.8219],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     }
   ],
   "Buenos Aires, Argentina": [
@@ -859,7 +1052,10 @@
       "carbon_emission": [22, 33],
       "destination_geo_location": [-33.4489, -70.6693],
       "source_geo_location": [-34.6037, -58.3816],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Lima, Peru",
@@ -871,7 +1067,11 @@
       "carbon_emission": [50, 70, 85],
       "destination_geo_location": [-12.0464, -77.0428],
       "source_geo_location": [-34.6037, -58.3816],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "", ""]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "",
+        ""
+      ]
     }
   ],
   "Santiago, Chile": [
@@ -885,7 +1085,10 @@
       "carbon_emission": [22, 33],
       "destination_geo_location": [-34.6037, -58.3816],
       "source_geo_location": [-33.4489, -70.6693],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     }
   ],
   "Lima, Peru": [
@@ -899,7 +1102,11 @@
       "carbon_emission": [50, 70, 83],
       "destination_geo_location": [-34.6037, -58.3816],
       "source_geo_location": [-12.0464, -77.0428],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "", ""]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "",
+        ""
+      ]
     }
   ],
   "Moscow, Russia": [
@@ -913,7 +1120,10 @@
       "carbon_emission": [41, 100],
       "destination_geo_location": [51.1694, 71.4491],
       "source_geo_location": [55.7558, 37.6176],
-      "emission_reason": ["", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Russian government"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Russian government"
+      ]
     },
     {
       "destination": "Ulaanbaatar, Mongolia",
@@ -925,7 +1135,10 @@
       "carbon_emission": [70, 140],
       "destination_geo_location": [47.8864, 106.9057],
       "source_geo_location": [55.7558, 37.6176],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Russian government"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Russian government"
+      ]
     },
     {
       "destination": "Beijing, China",
@@ -937,7 +1150,10 @@
       "carbon_emission": [89, 164],
       "destination_geo_location": [39.9042, 116.4074],
       "source_geo_location": [55.7558, 37.6176],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Russian government"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Russian government"
+      ]
     }
   ],
   "Beijing, China": [
@@ -951,7 +1167,10 @@
       "carbon_emission": [89, 151],
       "destination_geo_location": [51.1694, 71.4491],
       "source_geo_location": [39.9042, 116.4074],
-      "emission_reason": ["Some roads for this route aren't in the best condition", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Chinese government"]
+      "emission_reason": [
+        "Some roads for this route aren't in the best condition",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Chinese government"
+      ]
     },
     {
       "destination": "Hong Kong, China",
@@ -963,7 +1182,11 @@
       "carbon_emission": [32, 24, 52],
       "destination_geo_location": [22.3193, 114.1694],
       "source_geo_location": [39.9042, 116.4074],
-      "emission_reason": ["", "", "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Chinese government"]
+      "emission_reason": [
+        "",
+        "",
+        "Aircraft used for this route doesn't have sustainable engines due to minimal regulations by the Chinese government"
+      ]
     }
   ],
   "Astana, Kazakhstan": [
@@ -977,7 +1200,10 @@
       "carbon_emission": [56, 101],
       "destination_geo_location": [39.9042, 116.4074],
       "source_geo_location": [51.1694, 71.4491],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     },
     {
       "destination": "Moscow, Russia",
@@ -989,7 +1215,10 @@
       "carbon_emission": [35, 75],
       "destination_geo_location": [51.1694, 71.4491],
       "source_geo_location": [51.1694, 71.4491],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     },
     {
       "destination": "Ulaanbaatar, Mongolia",
@@ -1001,7 +1230,10 @@
       "carbon_emission": [49, 80],
       "destination_geo_location": [47.8864, 106.9057],
       "source_geo_location": [51.1694, 71.4491],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     }
   ],
   "Ulaanbaatar, Mongolia": [
@@ -1015,7 +1247,10 @@
       "carbon_emission": [12, 25],
       "destination_geo_location": [39.9042, 116.4074],
       "source_geo_location": [47.8864, 106.9057],
-      "emission_reason": ["", "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"]
+      "emission_reason": [
+        "",
+        "For shorter flights, taking off which causes the most emissions are a larger percentage of the flight time"
+      ]
     },
     {
       "destination": "Moscow, Russia",
@@ -1027,7 +1262,10 @@
       "carbon_emission": [70, 130],
       "destination_geo_location": [51.1694, 71.4491],
       "source_geo_location": [47.8864, 106.9057],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     },
     {
       "destination": "Astana, Kazakhstan",
@@ -1039,7 +1277,10 @@
       "carbon_emission": [49, 68],
       "destination_geo_location": [51.1694, 71.4491],
       "source_geo_location": [47.8864, 106.9057],
-      "emission_reason": ["", "Aircraft used for this route isn't the most efficient due to being outdated"]
+      "emission_reason": [
+        "",
+        "Aircraft used for this route isn't the most efficient due to being outdated"
+      ]
     }
   ]
 }

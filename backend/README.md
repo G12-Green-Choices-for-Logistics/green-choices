@@ -55,12 +55,15 @@ npm install
 ```sh
 brew services start postgresql
 ```
+
 - **Linux**:
+
 ```sh
  sudo systemctl start postgresql
 ```
 
 ### 4.Set up environment variable: Add a new file `.env` with follwing format in the root folder of backend project.
+
 ```text
 DB_HOST=localhost
 DB_USER=postgres
@@ -68,7 +71,7 @@ DB_PASSWORD=yourpassword
 DB_NAME=greenchoices
 DB_PORT=5432
 PORT=3000
-````
+```
 
 ### 5.Initialize the database run the below command in the root folder of backend project.
 

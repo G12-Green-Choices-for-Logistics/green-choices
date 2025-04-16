@@ -1,6 +1,6 @@
 // controllers/orderController.js
-const orderModel = require('../models/order');
-const saveRouteModel = require('../models/saveRouteModel');
+const orderModel = require("../models/order");
+const saveRouteModel = require("../models/saveRouteModel");
 
 // Create a new order
 const createOrder = async (req, res) => {
@@ -8,12 +8,12 @@ const createOrder = async (req, res) => {
     const order = await orderModel.createOrder(req.body);
     res.status(201).json({
       success: true,
-      data: order
+      data: order,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -25,17 +25,17 @@ const updateOrder = async (req, res) => {
     if (!order) {
       return res.status(404).json({
         success: false,
-        error: 'Order not found'
+        error: "Order not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: order
+      data: order,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -47,17 +47,17 @@ const getOrderById = async (req, res) => {
     if (!order) {
       return res.status(404).json({
         success: false,
-        error: 'Order not found'
+        error: "Order not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: order
+      data: order,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -69,12 +69,12 @@ const getAllOrders = async (req, res) => {
     res.status(200).json({
       success: true,
       count: orders.length,
-      data: orders
+      data: orders,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -86,12 +86,12 @@ const getOrdersByUserId = async (req, res) => {
     res.status(200).json({
       success: true,
       count: orders.length,
-      data: orders
+      data: orders,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -103,47 +103,45 @@ const getActiveOrdersByUserId = async (req, res) => {
     res.status(200).json({
       success: true,
       count: orders.length,
-      data: orders
+      data: orders,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
 
 const getActiveOrdersWithRouteInfo = async (req, res) => {
   try {
-      const { userId } = req.params;
+    const { userId } = req.params;
 
-      const activeOrders = await orderModel.getActiveOrdersByUserId(userId);
-      const activeOrdersWithRouteInfo = [];
+    const activeOrders = await orderModel.getActiveOrdersByUserId(userId);
+    const activeOrdersWithRouteInfo = [];
 
-      for (const order of activeOrders) {
-        const routeInfo = await saveRouteModel.getRouteByOrderId(order.orderid);
-      
-        activeOrdersWithRouteInfo.push({
-          ...order,
-          routeInfo,
-        });
-      }
+    for (const order of activeOrders) {
+      const routeInfo = await saveRouteModel.getRouteByOrderId(order.orderid);
 
-      
-
-      // Step 4: Return the combined data (active orders with route info)
-      return res.status(200).json({
-          success: true,
-          message: "Active orders with route info fetched successfully",
-          data: activeOrdersWithRouteInfo,
+      activeOrdersWithRouteInfo.push({
+        ...order,
+        routeInfo,
       });
+    }
+
+    // Step 4: Return the combined data (active orders with route info)
+    return res.status(200).json({
+      success: true,
+      message: "Active orders with route info fetched successfully",
+      data: activeOrdersWithRouteInfo,
+    });
   } catch (error) {
-      // If any error occurs, send error response
-      return res.status(400).json({
-          success: false,
-          message: "Error fetching active orders with route info",
-          error: error.message,
-      });
+    // If any error occurs, send error response
+    return res.status(400).json({
+      success: false,
+      message: "Error fetching active orders with route info",
+      error: error.message,
+    });
   }
 };
 
@@ -154,12 +152,12 @@ const getOrderAuditHistory = async (req, res) => {
     res.status(200).json({
       success: true,
       count: history.length,
-      data: history
+      data: history,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -172,5 +170,5 @@ module.exports = {
   getOrdersByUserId,
   getActiveOrdersByUserId,
   getActiveOrdersWithRouteInfo,
-  getOrderAuditHistory
+  getOrderAuditHistory,
 };

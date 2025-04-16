@@ -1,6 +1,6 @@
-const db = require('../config/db');
-const orderDetailModel = require('./orderDetail');
-const saveRouteModel = require('./saveRouteModel');
+const db = require("../config/db");
+const orderDetailModel = require("./orderDetail");
+const saveRouteModel = require("./saveRouteModel");
 
 /**
  * Create a new order
@@ -14,14 +14,30 @@ const saveRouteModel = require('./saveRouteModel');
  * @returns {Promise<Object>} - Created order object
  */
 const createOrder = async (orderData) => {
-  const { userId, shippingAddress, totalAmount, deliveryCharge, orderStatus, isSustainableOption, orderItems, routeInfo } = orderData;
+  const {
+    userId,
+    shippingAddress,
+    totalAmount,
+    deliveryCharge,
+    orderStatus,
+    isSustainableOption,
+    orderItems,
+    routeInfo,
+  } = orderData;
   //const client = await db.pool.connect();
   try {
     //await client.query('BEGIN'); // Start a transaction
 
     const result = await db.query(
-      'CALL sp_InsertOrder($1, $2, $3, $4, $5, $6, NULL)',
-      [userId, shippingAddress, totalAmount, deliveryCharge, orderStatus, isSustainableOption]
+      "CALL sp_InsertOrder($1, $2, $3, $4, $5, $6, NULL)",
+      [
+        userId,
+        shippingAddress,
+        totalAmount,
+        deliveryCharge,
+        orderStatus,
+        isSustainableOption,
+      ],
     );
 
     console.log("order created: ");
@@ -32,7 +48,12 @@ const createOrder = async (orderData) => {
 
     for (const item of orderItems) {
       const { productId, quantity, price } = item;
-      await orderDetailModel.createOrderDetail({ orderId, productId, quantity, price });
+      await orderDetailModel.createOrderDetail({
+        orderId,
+        productId,
+        quantity,
+        price,
+      });
     }
 
     if (routeInfo) {
@@ -41,7 +62,7 @@ const createOrder = async (orderData) => {
 
     return orderResult;
   } catch (error) {
-    console.error('Error creating order:', error);
+    console.error("Error creating order:", error);
     throw error;
   } finally {
   }
@@ -54,18 +75,28 @@ const createOrder = async (orderData) => {
  * @returns {Promise<Object>} - Updated order object
  */
 const updateOrder = async (orderId, orderData) => {
-  const { shippingAddress, totalAmount, deliveryCharge, orderStatus, isSustainableOption } = orderData;
-  
+  const {
+    shippingAddress,
+    totalAmount,
+    deliveryCharge,
+    orderStatus,
+    isSustainableOption,
+  } = orderData;
+
   try {
-    await db.query(
-      'CALL sp_UpdateOrder($1, $2, $3, $4, $5, $6)',
-      [orderId, shippingAddress, totalAmount, deliveryCharge, orderStatus, isSustainableOption]
-    );
-    
+    await db.query("CALL sp_UpdateOrder($1, $2, $3, $4, $5, $6)", [
+      orderId,
+      shippingAddress,
+      totalAmount,
+      deliveryCharge,
+      orderStatus,
+      isSustainableOption,
+    ]);
+
     const result = await getOrderById(orderId);
     return result;
   } catch (error) {
-    console.error('Error updating order:', error);
+    console.error("Error updating order:", error);
     throw error;
   }
 };
@@ -77,10 +108,12 @@ const updateOrder = async (orderId, orderData) => {
  */
 const getOrderById = async (orderId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetOrderByID($1)', [orderId]);
+    const result = await db.query("SELECT * FROM fn_GetOrderByID($1)", [
+      orderId,
+    ]);
     return result.rows[0];
   } catch (error) {
-    console.error('Error getting order by ID:', error);
+    console.error("Error getting order by ID:", error);
     throw error;
   }
 };
@@ -91,10 +124,10 @@ const getOrderById = async (orderId) => {
  */
 const getAllOrders = async () => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetAllOrders()');
+    const result = await db.query("SELECT * FROM fn_GetAllOrders()");
     return result.rows;
   } catch (error) {
-    console.error('Error getting all orders:', error);
+    console.error("Error getting all orders:", error);
     throw error;
   }
 };
@@ -106,10 +139,12 @@ const getAllOrders = async () => {
  */
 const getOrdersByUserId = async (userId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetOrdersByUserID($1)', [userId]);
+    const result = await db.query("SELECT * FROM fn_GetOrdersByUserID($1)", [
+      userId,
+    ]);
     return result.rows;
   } catch (error) {
-    console.error('Error getting orders by user ID:', error);
+    console.error("Error getting orders by user ID:", error);
     throw error;
   }
 };
@@ -121,10 +156,13 @@ const getOrdersByUserId = async (userId) => {
  */
 const getActiveOrdersByUserId = async (userId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetActiveOrdersByUserID($1)', [userId]);
+    const result = await db.query(
+      "SELECT * FROM fn_GetActiveOrdersByUserID($1)",
+      [userId],
+    );
     return result.rows;
   } catch (error) {
-    console.error('Error getting active orders by user ID:', error);
+    console.error("Error getting active orders by user ID:", error);
     throw error;
   }
 };
@@ -136,10 +174,12 @@ const getActiveOrdersByUserId = async (userId) => {
  */
 const getOrderAuditHistory = async (orderId) => {
   try {
-    const result = await db.query('SELECT * FROM fn_GetOrderAuditHistory($1)', [orderId]);
+    const result = await db.query("SELECT * FROM fn_GetOrderAuditHistory($1)", [
+      orderId,
+    ]);
     return result.rows;
   } catch (error) {
-    console.error('Error getting order audit history:', error);
+    console.error("Error getting order audit history:", error);
     throw error;
   }
 };
@@ -151,5 +191,5 @@ module.exports = {
   getAllOrders,
   getOrdersByUserId,
   getActiveOrdersByUserId,
-  getOrderAuditHistory
+  getOrderAuditHistory,
 };

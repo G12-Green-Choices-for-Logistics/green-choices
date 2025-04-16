@@ -1,5 +1,5 @@
 // controllers/orderDetailController.js
-const orderDetailModel = require('../models/orderDetail');
+const orderDetailModel = require("../models/orderDetail");
 
 // Create a new order detail
 const createOrderDetail = async (req, res) => {
@@ -7,12 +7,12 @@ const createOrderDetail = async (req, res) => {
     const orderDetail = await orderDetailModel.createOrderDetail(req.body);
     res.status(201).json({
       success: true,
-      data: orderDetail
+      data: orderDetail,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -20,21 +20,24 @@ const createOrderDetail = async (req, res) => {
 // Update an existing order detail
 const updateOrderDetail = async (req, res) => {
   try {
-    const orderDetail = await orderDetailModel.updateOrderDetail(req.params.id, req.body);
+    const orderDetail = await orderDetailModel.updateOrderDetail(
+      req.params.id,
+      req.body,
+    );
     if (!orderDetail) {
       return res.status(404).json({
         success: false,
-        error: 'Order detail not found'
+        error: "Order detail not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: orderDetail
+      data: orderDetail,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -42,21 +45,23 @@ const updateOrderDetail = async (req, res) => {
 // Get a single order detail by ID
 const getOrderDetailById = async (req, res) => {
   try {
-    const orderDetail = await orderDetailModel.getOrderDetailByID(req.params.id);
+    const orderDetail = await orderDetailModel.getOrderDetailByID(
+      req.params.id,
+    );
     if (!orderDetail) {
       return res.status(404).json({
         success: false,
-        error: 'Order detail not found'
+        error: "Order detail not found",
       });
     }
     res.status(200).json({
       success: true,
-      data: orderDetail
+      data: orderDetail,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -81,16 +86,18 @@ const getOrderDetailById = async (req, res) => {
 // Get order details by Order ID
 const getOrderDetailsByOrderId = async (req, res) => {
   try {
-    const orderDetails = await orderDetailModel.getOrderDetailsByOrderID(req.params.orderId);
+    const orderDetails = await orderDetailModel.getOrderDetailsByOrderID(
+      req.params.orderId,
+    );
     res.status(200).json({
       success: true,
       count: orderDetails.length,
-      data: orderDetails
+      data: orderDetails,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -98,16 +105,18 @@ const getOrderDetailsByOrderId = async (req, res) => {
 // Get order detail audit history
 const getOrderDetailAuditHistory = async (req, res) => {
   try {
-    const history = await orderDetailModel.getOrderDetailAuditHistory(req.params.id);
+    const history = await orderDetailModel.getOrderDetailAuditHistory(
+      req.params.id,
+    );
     res.status(200).json({
       success: true,
       count: history.length,
-      data: history
+      data: history,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: error.message
+      error: error.message,
     });
   }
 };
@@ -117,5 +126,5 @@ module.exports = {
   updateOrderDetail,
   getOrderDetailById,
   getOrderDetailsByOrderId,
-  getOrderDetailAuditHistory
+  getOrderDetailAuditHistory,
 };
