@@ -1,5 +1,8 @@
-jest.mock('pg', () => {
-    const mockPool = {
+let mockPool;
+
+jest.mock('pg', () =>
+{
+    mockPool = {
         query: jest.fn(),
         on: jest.fn()
     };
@@ -11,26 +14,27 @@ jest.mock('dotenv', () => ({
     config: jest.fn()
 }));
 
-describe('Database Configuration', () => {
+describe('Database Configuration', () =>
+{
     let db;
     let pgMock;
 
-    beforeEach(() => {
-
+    beforeEach(() =>
+    {
         jest.resetModules();
-
-
         pgMock = require('pg');
-
-
         db = require('../../config/db');
+        // Save the mockPool instance
+        mockPool = pgMock.Pool.mock.results[0].value;
     });
 
-    afterEach(() => {
+    afterEach(() =>
+    {
         jest.clearAllMocks();
     });
 
-    it('should create a pool with the correct configuration', () => {
+    it('should create a pool with the correct configuration', () =>
+    {
 
         expect(pgMock.Pool).toHaveBeenCalledWith({
             user: process.env.DB_USER,
@@ -41,8 +45,8 @@ describe('Database Configuration', () => {
         });
     });
 
-    it('should export a query function that calls pool.query', async () => {
-        const mockPool = pgMock.Pool();
+    it('should export a query function that calls pool.query', async () =>
+    {
         const queryText = 'SELECT * FROM users';
         const queryParams = [1];
 
@@ -53,24 +57,22 @@ describe('Database Configuration', () => {
         expect(mockPool.query).toHaveBeenCalledWith(queryText, queryParams);
     });
 
-    it('should export the pool', () => {
+    it('should export the pool', () =>
+    {
         expect(db.pool).toBeDefined();
-        expect(db.pool).toBe(pgMock.Pool());
+        expect(db.pool).toBe(mockPool);
     });
 
-    it('should have a testConnection function that queries the database', async () => {
-        const mockPool = pgMock.Pool();
+    it('should have a testConnection function that queries the database', async () =>
+    {
         const mockResult = { rows: [{ now: new Date().toISOString() }] };
-
-
-        mockPool.query.mockImplementationOnce((query, callback) => {
+        mockPool.query.mockImplementationOnce((query, callback) =>
+        {
             callback(null, mockResult);
             return { rows: mockResult.rows };
         });
 
-
         const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-
         const result = db.testConnection();
 
         expect(mockPool.query).toHaveBeenCalledWith('SELECT NOW()', expect.any(Function));
@@ -79,27 +81,28 @@ describe('Database Configuration', () => {
             mockResult.rows[0].now
         );
 
-
         consoleSpy.mockRestore();
 
         return result;
     });
 
-    it('should handle connection errors in testConnection', async () => {
-        const mockPool = pgMock.Pool();
+    it('should handle connection errors in testConnection', async () =>
+    {
         const mockError = new Error('Connection failed');
 
-        mockPool.query.mockImplementationOnce((query, callback) => {
+        mockPool.query.mockImplementationOnce((query, callback) =>
+        {
             callback(mockError, null);
             return Promise.reject(mockError);
         });
 
         // Create a spy on console.error
         const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
-
-        try {
+        try
+        {
             await db.testConnection();
-        } catch (err) {
+        } catch (err)
+        {
             // Expected to fail
         }
 
